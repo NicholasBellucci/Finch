@@ -2,7 +2,7 @@ import Cocoa
 import Foundation
 import XcodeKit
 
-class SourceEditorCommand: NSObject, XCSourceEditorCommand {
+class CreateModelsCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void {
         guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange,
               let copiedString = NSPasteboard.general.pasteboardItems?.first?.string(forType: .string) else { return }
@@ -18,7 +18,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
 }
 
-private extension SourceEditorCommand {
+private extension CreateModelsCommand {
     /**
      Serializes the JSON data from a file.
 
