@@ -8,6 +8,15 @@ class CreateModelsCommand: NSObject, XCSourceEditorCommand {
               let copiedString = NSPasteboard.general.pasteboardItems?.first?.string(forType: .string) else { return }
 
         guard let jsonArray = serialize(data: copiedString.data(using: .utf8)!) else {
+            let userInfo: [String: Any] = [
+                NSLocalizedFailureReasonErrorKey : NSLocalizedString(
+                    "Malformed JSON",
+                    value: "The copied JSON appears malformed.",
+                    comment: ""
+                )
+            ]
+
+            completionHandler(NSError(domain: "", code: 1, userInfo: userInfo))
             return
         }
 
