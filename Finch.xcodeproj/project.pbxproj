@@ -179,9 +179,9 @@
 			children = (
 				4C1376AF258081E700DE3186 /* Quill.swift */,
 				4C1376E32580891100DE3186 /* Commands */,
+				4C1376C22580821B00DE3186 /* Core */,
 				4C71C5E62581442400271DF2 /* Errors */,
 				4C1376C1258081F700DE3186 /* Resources */,
-				4C1376C22580821B00DE3186 /* QuillCore */,
 			);
 			path = Quill;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4C1376C22580821B00DE3186 /* QuillCore */ = {
+		4C1376C22580821B00DE3186 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				4C1376C62580822900DE3186 /* Extensions */,
@@ -204,7 +204,7 @@
 				4C1376CF2580822900DE3186 /* Protocols */,
 				4C1376D12580822900DE3186 /* Tree */,
 			);
-			path = QuillCore;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		4C1376C32580822900DE3186 /* Handlers */ = {
