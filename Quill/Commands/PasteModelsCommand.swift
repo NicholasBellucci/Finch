@@ -2,21 +2,13 @@ import Cocoa
 import Foundation
 import XcodeKit
 
-class CreateModelsCommand: NSObject, XCSourceEditorCommand {
+class PasteModelsCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void {
         guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange,
               let copiedString = NSPasteboard.general.pasteboardItems?.first?.string(forType: .string) else { return }
 
         guard let jsonArray = serialize(data: copiedString.data(using: .utf8)!) else {
-            let userInfo: [String: Any] = [
-                NSLocalizedFailureReasonErrorKey : NSLocalizedString(
-                    "Malformed JSON",
-                    value: "The copied JSON appears malformed.",
-                    comment: ""
-                )
-            ]
-
-            completionHandler(NSError(domain: "", code: 1, userInfo: userInfo))
+            completionHandler(NSError.malformedJSON)
             return
         }
 
@@ -27,7 +19,7 @@ class CreateModelsCommand: NSObject, XCSourceEditorCommand {
     }
 }
 
-private extension CreateModelsCommand {
+private extension PasteModelsCommand {
     /**
      Serializes the JSON data from a file.
 

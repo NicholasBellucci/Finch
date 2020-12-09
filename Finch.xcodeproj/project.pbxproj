@@ -13,7 +13,7 @@
 		4C13769A258081BA00DE3186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137699258081BA00DE3186 /* Preview Assets.xcassets */; };
 		4C1376AB258081E700DE3186 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AA258081E700DE3186 /* Cocoa.framework */; };
 		4C1376B0258081E700DE3186 /* Quill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376AF258081E700DE3186 /* Quill.swift */; };
-		4C1376B2258081E700DE3186 /* CreateModelsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376B1258081E700DE3186 /* CreateModelsCommand.swift */; };
+		4C1376B2258081E700DE3186 /* PasteModelsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */; };
 		4C1376B7258081E700DE3186 /* Quill.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C1376A8258081E700DE3186 /* Quill.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4C1376BE258081EF00DE3186 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AC258081E700DE3186 /* XcodeKit.framework */; };
 		4C1376BF258081EF00DE3186 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AC258081E700DE3186 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -29,6 +29,7 @@
 		4C1376DD2580822900DE3186 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D02580822900DE3186 /* Copyable.swift */; };
 		4C1376DE2580822900DE3186 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D22580822900DE3186 /* Tree.swift */; };
 		4C1376DF2580822900DE3186 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D32580822900DE3186 /* Node.swift */; };
+		4C71C5E82581442400271DF2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71C5E72581442400271DF2 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,7 @@
 		4C1376AA258081E700DE3186 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4C1376AC258081E700DE3186 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		4C1376AF258081E700DE3186 /* Quill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quill.swift; sourceTree = "<group>"; };
-		4C1376B1258081E700DE3186 /* CreateModelsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModelsCommand.swift; sourceTree = "<group>"; };
+		4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteModelsCommand.swift; sourceTree = "<group>"; };
 		4C1376B3258081E700DE3186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1376B4258081E700DE3186 /* Quill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quill.entitlements; sourceTree = "<group>"; };
 		4C1376C42580822900DE3186 /* TypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHandler.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		4C1376D02580822900DE3186 /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		4C1376D22580822900DE3186 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		4C1376D32580822900DE3186 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		4C71C5E72581442400271DF2 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				4C1376AF258081E700DE3186 /* Quill.swift */,
 				4C1376E32580891100DE3186 /* Commands */,
+				4C71C5E62581442400271DF2 /* Errors */,
 				4C1376C1258081F700DE3186 /* Resources */,
 				4C1376C22580821B00DE3186 /* QuillCore */,
 			);
@@ -254,9 +257,18 @@
 		4C1376E32580891100DE3186 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376B1258081E700DE3186 /* CreateModelsCommand.swift */,
+				4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		4C71C5E62581442400271DF2 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				4C71C5E72581442400271DF2 /* Errors.swift */,
+			);
+			name = Errors;
+			path = ../../../Desktop/Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +381,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1376B0258081E700DE3186 /* Quill.swift in Sources */,
-				4C1376B2258081E700DE3186 /* CreateModelsCommand.swift in Sources */,
+				4C71C5E82581442400271DF2 /* Errors.swift in Sources */,
+				4C1376B2258081E700DE3186 /* PasteModelsCommand.swift in Sources */,
 				4C1376D72580822900DE3186 /* DateFormatter+Types.swift in Sources */,
 				4C1376D92580822900DE3186 /* Dictionary+Utils.swift in Sources */,
 				4C1376DD2580822900DE3186 /* Copyable.swift in Sources */,

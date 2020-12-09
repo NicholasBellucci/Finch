@@ -30,11 +30,11 @@
 			<array>
 				<dict>
 					<key>XCSourceEditorCommandClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).CreateModelsCommand</string>
+					<string>$(PRODUCT_MODULE_NAME).PasteModelsCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).CreateModelsCommand</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).PasteModelsCommand</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>Create Models</string>
+					<string>Paste Models</string>
 				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
