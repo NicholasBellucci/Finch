@@ -13,7 +13,7 @@ Finch will take care of everything. This includes creating a top level model, ch
 - [ ] Add Objective-C language option
 
 ## Usage
-Finch works with your clipboard to create the necessary models. All you need to do is copy your JSON and then in Xcode, choose `Editor` > `Finch` > `Convert JSON to Codables`. A keyboard shortcut for this command can be set in Xcode `Preferences` > `Key Bindings` > `Convert JSON to Codables`
+Finch works with your clipboard to create the necessary models. All you need to do is copy some JSON, return to Xcode, and choose `Editor` > `Finch` > `Convert JSON to Codables` from the menu bar. A keyboard shortcut for this command can be set in Xcode `Preferences` > `Key Bindings` > `Convert JSON to Codables`
 
 ## Example
 ### JSON
