@@ -7,6 +7,7 @@ Finch will take care of everything. This includes creating a top level model, ch
 
 ## Roadmap
 
+- [ ] Support OSX 10.15
 - [ ] Add customization settings in the desktop app
 - [ ] Add option for custom encode/decode initializers
 - [ ] Add Objective-C language option
