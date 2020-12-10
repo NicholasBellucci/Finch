@@ -9,21 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack {
+        HStack(spacing: 30) {
             Image("finch.icon")
                 .resizable()
-                .frame(width: 300, height: 300)
+                .frame(width: 200, height: 200)
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Finch")
                     .font(.system(size: 40, weight: .medium))
 
-                Button("Open Settings") {
-                    let url = URL(string: "x-apple.systempreferences:com.apple")!
-                    NSWorkspace.shared.open(url)
+                Text("An Xcode source extension for quickly creating Codable models from JSON.")
+                    .font(.system(size: 17, weight: .regular))
+                    .lineSpacing(5)
+
+                Spacer()
+
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("To enable open System Preferences > Extensions > Xcode Source Editor")
+                        .font(.system(size: 13, weight: .regular))
+                        .lineSpacing(5)
+
+                    Button("Open System Preferences") {
+                        if let url = URL(string: "x-apple.systempreferences:com.apple") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }
                 }
+                .padding(.bottom, 10)
             }
+            .frame(maxHeight: 200)
         }
+        .padding(50)
     }
 }
 
