@@ -2,7 +2,6 @@
 
 # Finch
 
-## Description
 A lightweight Xcode source extension that assists in transforming JSON into Codable Swift models. 
 Finch will take care of everything. This includes creating a top level model, children models, and declaring the proper types and coding keys. Any unknown types will be generated as placeholder `Any` types.
 
