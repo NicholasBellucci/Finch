@@ -1,5 +1,5 @@
 //
-//  FinchApp.swift
+//  Finch.swift
 //  Finch
 //
 //  Created by Nicholas Bellucci on 12/8/20.
@@ -11,7 +11,7 @@ import SwiftUI
 struct Finch: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LandingView()
                 .frame(width: 800, height: 300)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
