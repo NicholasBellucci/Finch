@@ -2,7 +2,7 @@ import Cocoa
 import Foundation
 import XcodeKit
 
-class PasteModelsCommand: NSObject, XCSourceEditorCommand {
+class ConvertJSONCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) -> Void {
         guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
             completionHandler(NSError.invalidSelection)

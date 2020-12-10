@@ -1,10 +1,3 @@
-//
-//  Data+Utils.swift
-//  Quill
-//
-//  Created by Nicholas Bellucci on 12/9/20.
-//
-
 import Foundation
 
 extension Data {

@@ -12,7 +12,7 @@ struct Finch: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: 700, minHeight: 300)
+                .frame(minWidth: 500, minHeight: 400)
         }
     }
 }

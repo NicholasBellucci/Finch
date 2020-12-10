@@ -1,7 +1,7 @@
 import Foundation
 import XcodeKit
 
-class Quill: NSObject, XCSourceEditorExtension {
+class SourceEditorExtension: NSObject, XCSourceEditorExtension {
     
     /*
     func extensionDidFinishLaunching() {

@@ -12,9 +12,9 @@
 		4C137697258081BA00DE3186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137696258081BA00DE3186 /* Assets.xcassets */; };
 		4C13769A258081BA00DE3186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137699258081BA00DE3186 /* Preview Assets.xcassets */; };
 		4C1376AB258081E700DE3186 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AA258081E700DE3186 /* Cocoa.framework */; };
-		4C1376B0258081E700DE3186 /* Quill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376AF258081E700DE3186 /* Quill.swift */; };
-		4C1376B2258081E700DE3186 /* PasteModelsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */; };
-		4C1376B7258081E700DE3186 /* Quill.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C1376A8258081E700DE3186 /* Quill.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C1376B0258081E700DE3186 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376AF258081E700DE3186 /* SourceEditorExtension.swift */; };
+		4C1376B2258081E700DE3186 /* ConvertJSONCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376B1258081E700DE3186 /* ConvertJSONCommand.swift */; };
+		4C1376B7258081E700DE3186 /* SourceEditorExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C1376A8258081E700DE3186 /* SourceEditorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4C1376BE258081EF00DE3186 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AC258081E700DE3186 /* XcodeKit.framework */; };
 		4C1376BF258081EF00DE3186 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1376AC258081E700DE3186 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C1376D42580822900DE3186 /* TypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C42580822900DE3186 /* TypeHandler.swift */; };
@@ -39,7 +39,7 @@
 			containerPortal = 4C137687258081B800DE3186 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4C1376A7258081E700DE3186;
-			remoteInfo = Quill;
+			remoteInfo = FinchExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				4C1376B7258081E700DE3186 /* Quill.appex in Embed App Extensions */,
+				4C1376B7258081E700DE3186 /* SourceEditorExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,13 +76,13 @@
 		4C137699258081BA00DE3186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C13769B258081BA00DE3186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C13769C258081BA00DE3186 /* Finch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Finch.entitlements; sourceTree = "<group>"; };
-		4C1376A8258081E700DE3186 /* Quill.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Quill.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C1376A8258081E700DE3186 /* SourceEditorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SourceEditorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1376AA258081E700DE3186 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4C1376AC258081E700DE3186 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
-		4C1376AF258081E700DE3186 /* Quill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quill.swift; sourceTree = "<group>"; };
-		4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteModelsCommand.swift; sourceTree = "<group>"; };
+		4C1376AF258081E700DE3186 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		4C1376B1258081E700DE3186 /* ConvertJSONCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertJSONCommand.swift; sourceTree = "<group>"; };
 		4C1376B3258081E700DE3186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C1376B4258081E700DE3186 /* Quill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quill.entitlements; sourceTree = "<group>"; };
+		4C1376B4258081E700DE3186 /* SourceEditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SourceEditorExtension.entitlements; sourceTree = "<group>"; };
 		4C1376C42580822900DE3186 /* TypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHandler.swift; sourceTree = "<group>"; };
 		4C1376C52580822900DE3186 /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
 		4C1376C72580822900DE3186 /* Tree+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tree+Debug.swift"; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4C137691258081B800DE3186 /* Finch */,
-				4C1376AE258081E700DE3186 /* Quill */,
+				4C1376AE258081E700DE3186 /* SourceEditorExtension */,
 				4C1376A9258081E700DE3186 /* Frameworks */,
 				4C137690258081B800DE3186 /* Products */,
 			);
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				4C13768F258081B800DE3186 /* Finch.app */,
-				4C1376A8258081E700DE3186 /* Quill.appex */,
+				4C1376A8258081E700DE3186 /* SourceEditorExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,23 +176,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C1376AE258081E700DE3186 /* Quill */ = {
+		4C1376AE258081E700DE3186 /* SourceEditorExtension */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376AF258081E700DE3186 /* Quill.swift */,
+				4C1376AF258081E700DE3186 /* SourceEditorExtension.swift */,
 				4C1376E32580891100DE3186 /* Commands */,
 				4C1376C22580821B00DE3186 /* Core */,
 				4CEA9882258144DE00BA8650 /* Errors */,
 				4C1376C1258081F700DE3186 /* Resources */,
 			);
-			path = Quill;
+			path = SourceEditorExtension;
 			sourceTree = "<group>";
 		};
 		4C1376C1258081F700DE3186 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				4C1376B3258081E700DE3186 /* Info.plist */,
-				4C1376B4258081E700DE3186 /* Quill.entitlements */,
+				4C1376B4258081E700DE3186 /* SourceEditorExtension.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 		4C1376E32580891100DE3186 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376B1258081E700DE3186 /* PasteModelsCommand.swift */,
+				4C1376B1258081E700DE3186 /* ConvertJSONCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -295,9 +295,9 @@
 			productReference = 4C13768F258081B800DE3186 /* Finch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4C1376A7258081E700DE3186 /* Quill */ = {
+		4C1376A7258081E700DE3186 /* SourceEditorExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C1376B8258081E700DE3186 /* Build configuration list for PBXNativeTarget "Quill" */;
+			buildConfigurationList = 4C1376B8258081E700DE3186 /* Build configuration list for PBXNativeTarget "SourceEditorExtension" */;
 			buildPhases = (
 				4C1376A4258081E700DE3186 /* Sources */,
 				4C1376A5258081E700DE3186 /* Frameworks */,
@@ -308,9 +308,9 @@
 			);
 			dependencies = (
 			);
-			name = Quill;
-			productName = Quill;
-			productReference = 4C1376A8258081E700DE3186 /* Quill.appex */;
+			name = SourceEditorExtension;
+			productName = FinchExtension;
+			productReference = 4C1376A8258081E700DE3186 /* SourceEditorExtension.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +344,7 @@
 			projectRoot = "";
 			targets = (
 				4C13768E258081B800DE3186 /* Finch */,
-				4C1376A7258081E700DE3186 /* Quill */,
+				4C1376A7258081E700DE3186 /* SourceEditorExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -382,10 +382,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C1376B0258081E700DE3186 /* Quill.swift in Sources */,
+				4C1376B0258081E700DE3186 /* SourceEditorExtension.swift in Sources */,
 				4CEA98872581455900BA8650 /* Data+Utils.swift in Sources */,
 				4CEA9884258144DE00BA8650 /* Errors.swift in Sources */,
-				4C1376B2258081E700DE3186 /* PasteModelsCommand.swift in Sources */,
+				4C1376B2258081E700DE3186 /* ConvertJSONCommand.swift in Sources */,
 				4C1376D72580822900DE3186 /* DateFormatter+Types.swift in Sources */,
 				4C1376D92580822900DE3186 /* Dictionary+Utils.swift in Sources */,
 				4C1376DD2580822900DE3186 /* Copyable.swift in Sources */,
@@ -406,7 +406,7 @@
 /* Begin PBXTargetDependency section */
 		4C1376B6258081E700DE3186 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4C1376A7258081E700DE3186 /* Quill */;
+			target = 4C1376A7258081E700DE3186 /* SourceEditorExtension */;
 			targetProxy = 4C1376B5258081E700DE3186 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -580,18 +580,18 @@
 		4C1376B9258081E700DE3186 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Quill/Resources/Quill.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KQQS5CV32Z;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Quill/Resources/Info.plist;
+				INFOPLIST_FILE = SourceEditorExtension/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.Quill;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -601,18 +601,18 @@
 		4C1376BA258081E700DE3186 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Quill/Resources/Quill.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KQQS5CV32Z;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Quill/Resources/Info.plist;
+				INFOPLIST_FILE = SourceEditorExtension/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.Quill;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -640,7 +640,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C1376B8258081E700DE3186 /* Build configuration list for PBXNativeTarget "Quill" */ = {
+		4C1376B8258081E700DE3186 /* Build configuration list for PBXNativeTarget "SourceEditorExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C1376B9258081E700DE3186 /* Debug */,
