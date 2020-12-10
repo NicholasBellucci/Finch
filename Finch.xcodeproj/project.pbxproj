@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C137693258081B800DE3186 /* FinchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137692258081B800DE3186 /* FinchApp.swift */; };
+		4C137693258081B800DE3186 /* Finch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137692258081B800DE3186 /* Finch.swift */; };
 		4C137695258081B800DE3186 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137694258081B800DE3186 /* ContentView.swift */; };
 		4C137697258081BA00DE3186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137696258081BA00DE3186 /* Assets.xcassets */; };
 		4C13769A258081BA00DE3186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137699258081BA00DE3186 /* Preview Assets.xcassets */; };
@@ -70,7 +70,7 @@
 
 /* Begin PBXFileReference section */
 		4C13768F258081B800DE3186 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C137692258081B800DE3186 /* FinchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinchApp.swift; sourceTree = "<group>"; };
+		4C137692258081B800DE3186 /* Finch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finch.swift; sourceTree = "<group>"; };
 		4C137694258081B800DE3186 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C137696258081BA00DE3186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C137699258081BA00DE3186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		4C137691258081B800DE3186 /* Finch */ = {
 			isa = PBXGroup;
 			children = (
-				4C137692258081B800DE3186 /* FinchApp.swift */,
+				4C137692258081B800DE3186 /* Finch.swift */,
 				4C137694258081B800DE3186 /* ContentView.swift */,
 				4C1376A3258081C000DE3186 /* Resources */,
 				4C137698258081BA00DE3186 /* Preview Content */,
@@ -374,7 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C137695258081B800DE3186 /* ContentView.swift in Sources */,
-				4C137693258081B800DE3186 /* FinchApp.swift in Sources */,
+				4C137693258081B800DE3186 /* Finch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
