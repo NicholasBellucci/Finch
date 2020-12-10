@@ -36,9 +36,6 @@ struct FinchOld {
     static func main() {
         NSApplication.shared.setActivationPolicy(.regular)
 
-        let nib = NSNib(nibNamed: NSNib.Name("MainMenu"), bundle: Bundle.main)
-        nib?.instantiate(withOwner: NSApplication.shared, topLevelObjects: nil)
-
         NSApp.delegate = appDelegate
         NSApp.activate(ignoringOtherApps: true)
         NSApp.run()
@@ -53,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            styleMask: [.closable, .miniaturizable],
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
         window.center()
