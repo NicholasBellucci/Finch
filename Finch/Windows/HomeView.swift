@@ -9,12 +9,12 @@ import Core
 import Sourceful
 import SwiftUI
 
-struct HomeView: SwiftUI.View {
+struct HomeView: View {
     @State private var json: String = ""
     @State private var swift: String = ""
     @State private var boolean: Bool = false
 
-    var body: some SwiftUI.View {
+    var body: some View {
         HStack(spacing: 20) {
             VStack(alignment: .leading, spacing: 10) {
                 Text("JSON")
@@ -55,7 +55,7 @@ struct HomeView: SwiftUI.View {
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some SwiftUI.View {
+    static var previews: some View {
         HomeView()
             .environment(\.colorScheme, .dark)
             .frame(width: 1000, height: 500)
