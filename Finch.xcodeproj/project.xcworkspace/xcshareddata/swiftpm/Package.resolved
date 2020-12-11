@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "CodeViewer",
-        "repositoryURL": "https://github.com/dwarvesf/CodeViewer",
+        "package": "Sourceful",
+        "repositoryURL": "https://github.com/NicholasBellucci/Sourceful",
         "state": {
-          "branch": null,
-          "revision": "44bd04af81046ce65a4e38dc97a9dd3d387f069e",
-          "version": "1.2.4"
+          "branch": "main",
+          "revision": "a3846a7d05da3a4f4bbe85b66a88dbcbc0e0f991",
+          "version": null
         }
       }
     ]
