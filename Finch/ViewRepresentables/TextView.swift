@@ -140,7 +140,7 @@ final class TextViewRepresentable: NSView {
         return scrollView
     }()
 
-    private lazy var textView: NSTextView = {
+    private lazy var textView: PlainTextView = {
         let contentSize = scrollView.contentSize
         let textStorage = NSTextStorage()
         let layoutManager = NSLayoutManager()
@@ -155,7 +155,7 @@ final class TextViewRepresentable: NSView {
 
         layoutManager.addTextContainer(textContainer)
 
-        let textView = NSTextView(frame: .zero, textContainer: textContainer)
+        let textView = PlainTextView(frame: .zero, textContainer: textContainer)
         textView.autoresizingMask = .width
         textView.delegate = delegate
         textView.drawsBackground = false
@@ -205,5 +205,11 @@ private extension TextViewRepresentable {
                 scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
             ]
         )
+    }
+}
+
+private class PlainTextView: NSTextView {
+    override func paste(_ sender: Any?) {
+        pasteAsPlainText(sender)
     }
 }
