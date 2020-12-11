@@ -11,8 +11,8 @@ import SwiftUI
 struct Finch: App {
     var body: some Scene {
         WindowGroup {
-            LandingView()
-                .frame(width: 800, height: 300)
+            HomeView()
+                .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         }
         .windowStyle(HiddenTitleBarWindowStyle())
     }
