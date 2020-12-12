@@ -2,11 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "Sourceful",
-        "repositoryURL": "https://github.com/NicholasBellucci/Sourceful",
+        "package": "Toucan",
+        "repositoryURL": "https://github.com/NicholasBellucci/Toucan.git",
         "state": {
           "branch": "main",
-          "revision": "a3846a7d05da3a4f4bbe85b66a88dbcbc0e0f991",
+          "revision": "70107474894333382df2cff2e28116ef3c5fe905",
           "version": null
         }
       }

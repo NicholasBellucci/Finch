@@ -39,7 +39,7 @@
 		4C7855DB2583328B001FC7D1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D32580822900DE3186 /* Node.swift */; };
 		4C7855DF258332B9001FC7D1 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; };
 		4C7855E0258332B9001FC7D1 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4C7855F125833D26001FC7D1 /* Sourceful in Frameworks */ = {isa = PBXBuildFile; productRef = 4C7855F025833D26001FC7D1 /* Sourceful */; };
+		4C78564A25841EA1001FC7D1 /* Toucan in Frameworks */ = {isa = PBXBuildFile; productRef = 4C78564925841EA1001FC7D1 /* Toucan */; };
 		4CEA9884258144DE00BA8650 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEA9883258144DE00BA8650 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */,
-				4C7855F125833D26001FC7D1 /* Sourceful in Frameworks */,
+				4C78564A25841EA1001FC7D1 /* Toucan in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +410,7 @@
 			);
 			name = Finch;
 			packageProductDependencies = (
-				4C7855F025833D26001FC7D1 /* Sourceful */,
+				4C78564925841EA1001FC7D1 /* Toucan */,
 			);
 			productName = Finch;
 			productReference = 4C13768F258081B800DE3186 /* Finch.app */;
@@ -483,7 +483,7 @@
 			);
 			mainGroup = 4C137686258081B800DE3186;
 			packageReferences = (
-				4C7855EF25833D26001FC7D1 /* XCRemoteSwiftPackageReference "Sourceful" */,
+				4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */,
 			);
 			productRefGroup = 4C137690258081B800DE3186 /* Products */;
 			projectDirPath = "";
@@ -894,9 +894,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4C7855EF25833D26001FC7D1 /* XCRemoteSwiftPackageReference "Sourceful" */ = {
+		4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/NicholasBellucci/Sourceful";
+			repositoryURL = "https://github.com/NicholasBellucci/Toucan.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -905,10 +905,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4C7855F025833D26001FC7D1 /* Sourceful */ = {
+		4C78564925841EA1001FC7D1 /* Toucan */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4C7855EF25833D26001FC7D1 /* XCRemoteSwiftPackageReference "Sourceful" */;
-			productName = Sourceful;
+			package = 4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */;
+			productName = Toucan;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

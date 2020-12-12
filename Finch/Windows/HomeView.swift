@@ -6,7 +6,7 @@
 //
 
 import Core
-import Sourceful
+import Toucan
 import SwiftUI
 
 struct HomeView: View {
@@ -20,9 +20,10 @@ struct HomeView: View {
                 Text("JSON")
                     .font(.system(size: 20, weight: .medium))
 
-                SourceCodeTextEditor(
+                SyntaxTextView(
                     text: $json,
-                    customization: SourceCodeTextEditor.Customization(
+                    customization: SyntaxTextView.Customization(
+                        theme: DefaultTheme(),
                         didChange: { text in
                             swift = swift(from: text)
                         }
@@ -36,8 +37,13 @@ struct HomeView: View {
                 Text("Swift")
                     .font(.system(size: 20, weight: .medium))
 
-                SourceCodeTextEditor(text: $swift)
-                    .cornerRadius(5)
+                SyntaxTextView(
+                    text: $swift,
+                    customization: SyntaxTextView.Customization(
+                        theme: DefaultTheme()
+                    )
+                )
+                .cornerRadius(5)
             }
             .padding([.top, .bottom, .trailing], 20)
         }
