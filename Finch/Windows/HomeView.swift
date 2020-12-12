@@ -22,12 +22,10 @@ struct HomeView: View {
 
                 SyntaxTextView(
                     text: $json,
-                    customization: SyntaxTextView.Customization(
-                        theme: XcodeDarkTheme(),
-                        didChange: { text in
-                            swift = swift(from: text)
-                        }
-                    )
+                    theme: XcodeDarkTheme(),
+                    didChange: { text in
+                        swift = swift(from: text)
+                    }
                 )
                 .cornerRadius(5)
             }
@@ -39,9 +37,7 @@ struct HomeView: View {
 
                 SyntaxTextView(
                     text: $swift,
-                    customization: SyntaxTextView.Customization(
-                        theme: XcodeDarkTheme()
-                    )
+                    theme: XcodeDarkTheme()
                 )
                 .cornerRadius(5)
             }

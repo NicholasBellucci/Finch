@@ -2,11 +2,15 @@ import Cocoa
 import Foundation
 import Toucan
 
-public struct XcodeDarkTheme: CodeTheme {
+public struct XcodeDarkTheme: EditorTheme {
     public init() { }
 
     public var backgroundColor: NSColor {
         NSColor(red: 42/255.0, green: 42/255, blue: 48/255, alpha: 1.0)
+    }
+
+    public var cursorColor: NSColor {
+        .white
     }
 
     public var font: NSFont {
