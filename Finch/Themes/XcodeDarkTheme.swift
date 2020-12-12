@@ -17,6 +17,10 @@ public struct XcodeDarkTheme: EditorTheme {
         .monospacedSystemFont(ofSize: 13, weight: .medium)
     }
 
+    public var foregroundColor: NSColor {
+        .white
+    }
+
     public var gutterStyle: GutterStyle {
         GutterStyle(backgroundColor: NSColor(red: 42/255.0, green: 42/255, blue: 48/255, alpha: 1.0), minimumWidth: 32)
     }
@@ -29,8 +33,10 @@ public struct XcodeDarkTheme: EditorTheme {
         NSColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
     }
 
-    public func color(for syntaxColorType: TokenType) -> NSColor {
-        switch syntaxColorType {
+    public func color(for type: TokenType) -> NSColor {
+        guard let type = type as? SwiftLexer.SwiftTokenType else { return .clear }
+
+        switch type {
         case .comment:
             return NSColor(red: 69/255, green: 187/255, blue: 62/255, alpha: 1)
         case .customType:
