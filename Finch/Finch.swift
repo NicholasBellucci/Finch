@@ -12,8 +12,13 @@ struct Finch: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
+                .frame(minWidth: 600, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
+                .navigationTitle("")
+                .toolbar {
+                    Button(action: {}) {
+                        Image(systemName: "gear")
+                    }
+                }
         }
-        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }

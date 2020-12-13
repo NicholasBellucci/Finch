@@ -12,7 +12,6 @@ import SwiftUI
 struct HomeView: View {
     @State private var json: String = ""
     @State private var swift: String = ""
-    @State private var boolean: Bool = false
 
     var body: some View {
         HStack(spacing: 20) {
@@ -20,14 +19,11 @@ struct HomeView: View {
                 Text("JSON")
                     .font(.system(size: 20, weight: .medium))
 
-                SyntaxTextView(
-                    text: $json,
-                    theme: XcodeDarkTheme(),
-                    didChange: { text in
+                SyntaxTextView(text: $json, theme: DefaultThemeDark())
+                    .textDidChange { text in
                         swift = swift(from: text)
                     }
-                )
-                .cornerRadius(5)
+                    .cornerRadius(5)
             }
             .padding([.top, .bottom, .leading], 20)
 
@@ -35,11 +31,9 @@ struct HomeView: View {
                 Text("Swift")
                     .font(.system(size: 20, weight: .medium))
 
-                SyntaxTextView(
-                    text: $swift,
-                    theme: XcodeDarkTheme()
-                )
-                .cornerRadius(5)
+                SyntaxTextView(text: $swift, theme: DefaultThemeDark())
+                    .isEditable(false)
+                    .cornerRadius(5)
             }
             .padding([.top, .bottom, .trailing], 20)
         }

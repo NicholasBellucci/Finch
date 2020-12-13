@@ -23,7 +23,7 @@ public struct Tree {
 
             if let nodeSwift = $0.swift {
                 if $0 != parents.first {
-                    swift += "\n\n"
+                    swift += "\n"
                 }
                 
                 swift += nodeSwift
