@@ -20,6 +20,9 @@
 		4C16DBD32582FA9700AE4917 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBD22582FA9700AE4917 /* HomeView.swift */; };
 		4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBD82582FE1D00AE4917 /* TextView.swift */; };
 		4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBDD258306F200AE4917 /* Color+App.swift */; };
+		4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F14F2588250500AA7D4D /* Notification+Names.swift */; };
+		4C23F1542588271900AA7D4D /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1532588271900AA7D4D /* Languages.swift */; };
+		4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1582588447B00AA7D4D /* WindowAccessor.swift */; };
 		4C61063925830C6800791079 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61063825830C6800791079 /* ColoredView.swift */; };
 		4C7855B8258330D0001FC7D1 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7855B6258330D0001FC7D1 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; };
@@ -134,6 +137,9 @@
 		4C16DBD22582FA9700AE4917 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4C16DBD82582FE1D00AE4917 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		4C16DBDD258306F200AE4917 /* Color+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+App.swift"; sourceTree = "<group>"; };
+		4C23F14F2588250500AA7D4D /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		4C23F1532588271900AA7D4D /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		4C23F1582588447B00AA7D4D /* WindowAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
 		4C61063825830C6800791079 /* ColoredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
 		4C7855B4258330D0001FC7D1 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7855B6258330D0001FC7D1 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 			children = (
 				4C137692258081B800DE3186 /* Finch.swift */,
 				4C16DBDC258306DF00AE4917 /* Extensions */,
+				4C23F1522588270E00AA7D4D /* Models */,
 				4C137698258081BA00DE3186 /* Preview Content */,
 				4C1376A3258081C000DE3186 /* Resources */,
 				4C16DBD62582FE0000AE4917 /* Views */,
@@ -328,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				4C16DBD82582FE1D00AE4917 /* TextView.swift */,
+				4C23F1582588447B00AA7D4D /* WindowAccessor.swift */,
 			);
 			path = ViewRepresentables;
 			sourceTree = "<group>";
@@ -336,8 +344,17 @@
 			isa = PBXGroup;
 			children = (
 				4C16DBDD258306F200AE4917 /* Color+App.swift */,
+				4C23F14F2588250500AA7D4D /* Notification+Names.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C23F1522588270E00AA7D4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C23F1532588271900AA7D4D /* Languages.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4C61063725830C4900791079 /* ViewModifiers */ = {
@@ -527,9 +544,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */,
 				4C16DBD32582FA9700AE4917 /* HomeView.swift in Sources */,
+				4C23F1542588271900AA7D4D /* Languages.swift in Sources */,
 				4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */,
 				4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */,
+				4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */,
 				4C137695258081B800DE3186 /* LandingView.swift in Sources */,
 				4C137693258081B800DE3186 /* Finch.swift in Sources */,
 				4C61063925830C6800791079 /* ColoredView.swift in Sources */,
