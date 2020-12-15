@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Toucan",
+        "repositoryURL": "https://github.com/NicholasBellucci/Toucan.git",
+        "state": {
+          "branch": "main",
+          "revision": "0720ed443e9dfbba30edea7dbb6d1c97378f1b98",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

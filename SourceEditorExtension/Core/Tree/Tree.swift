@@ -1,11 +1,11 @@
 import Foundation
 
-struct Tree {
+public struct Tree {
     static var rootNode: Node?
 
     private static var parents: [Node] = []
 
-    static func build(from json: [String: Any]) {
+    public static func build(from json: [String: Any]) {
         parents = []
         
         let rootNode = Node(name: String(placeholder: "ModelName"))
@@ -15,7 +15,7 @@ struct Tree {
         createNodes()
     }
 
-    static func write() -> String {
+    public static func write() -> String {
         var swift = ""
 
         parents.forEach {
@@ -23,7 +23,7 @@ struct Tree {
 
             if let nodeSwift = $0.swift {
                 if $0 != parents.first {
-                    swift += "\n\n"
+                    swift += "\n"
                 }
                 
                 swift += nodeSwift

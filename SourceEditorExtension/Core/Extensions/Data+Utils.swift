@@ -1,6 +1,6 @@
 import Foundation
 
-extension Data {
+public extension Data {
     /**
      Serializes the JSON data from a file.
 

@@ -23,12 +23,19 @@ struct AppUserInterfaceSelector {
 
 @available(OSX 11.0, *)
 struct Finch: App {
+    @State private var window: NSWindow?
+
     var body: some Scene {
         WindowGroup {
-            LandingView()
-                .frame(width: 800, height: 300)
+            HomeView()
+                .frame(minWidth: 600, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
+                .navigationTitle("Untitled Model")
+                .toolbar {
+                    Button(action: {}) {
+                        Image(systemName: "gear")
+                    }
+                }
         }
-        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
 
@@ -54,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
         window.center()
-        window.setFrameAutosaveName("Main Window")
+        window.setFrameAutosaveName("")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
     }
