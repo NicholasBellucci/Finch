@@ -8,7 +8,7 @@
 import Foundation
 import Core
 
-public enum Languages: Int, CaseIterable {
+public enum Language: Int, CaseIterable {
     case swift
     case kotlin
 

@@ -6,9 +6,15 @@
 //
 
 import Cocoa
+import ComposableArchitecture
 import SwiftUI
 
 var appDelegate = AppDelegate()
+var appStore = Store(
+    initialState: AppDomain.State(),
+    reducer: AppDomain.reducer,
+    environment: AppDomain.Environment()
+)
 
 @main
 struct AppUserInterfaceSelector {
@@ -27,7 +33,7 @@ struct Finch: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
                 .frame(minWidth: 600, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
                 .navigationTitle("Untitled Model")
                 .toolbar {
@@ -53,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let contentView = LandingView()
+        let contentView = HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 300),

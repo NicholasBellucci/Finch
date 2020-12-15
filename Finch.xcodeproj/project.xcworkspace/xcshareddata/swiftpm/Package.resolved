@@ -2,11 +2,38 @@
   "object": {
     "pins": [
       {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "ff42ec9061d864de7982162011321d3df5080c10",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "swift-case-paths",
+        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths",
+        "state": {
+          "branch": null,
+          "revision": "ed1838ab4fa5d47db8aa640736dd5b7672548873",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "swift-composable-architecture",
+        "repositoryURL": "https://github.com/pointfreeco/swift-composable-architecture",
+        "state": {
+          "branch": null,
+          "revision": "b67569f69813140cd9c984db33ee959d9711a008",
+          "version": "0.9.0"
+        }
+      },
+      {
         "package": "Toucan",
         "repositoryURL": "https://github.com/NicholasBellucci/Toucan.git",
         "state": {
           "branch": "main",
-          "revision": "bbb84f0e5f001b0086ad8f43b74bb697e4db6521",
+          "revision": "ff3a2d1d990133b986c48688deb4fac094c418d8",
           "version": null
         }
       }
