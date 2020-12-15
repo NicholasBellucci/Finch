@@ -16,7 +16,7 @@ struct AppUserInterfaceSelector {
         if #available(OSX 11.0, *) {
             Finch.main()
         } else {
-            FinchOld.main()
+            FinchAppDelegate.main()
         }
     }
 }
@@ -39,7 +39,7 @@ struct Finch: App {
     }
 }
 
-struct FinchOld {
+struct FinchAppDelegate {
     static func main() {
         NSApplication.shared.setActivationPolicy(.regular)
 
