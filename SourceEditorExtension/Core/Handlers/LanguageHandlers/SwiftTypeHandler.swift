@@ -46,12 +46,9 @@ struct SwiftTypeHandler {
     }
 
     static func isURL(_ string: String) -> Bool {
-        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return false }
-        if let match = detector.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.endIndex.utf16Offset(in: string))) {
-            return match.range.length == string.endIndex.utf16Offset(in: string)
-        } else {
-            return false
-        }
+        let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray: [regEx])
+        return predicate.evaluate(with: string)
     }
 
     static func isDate(_ string: String) -> Bool {
