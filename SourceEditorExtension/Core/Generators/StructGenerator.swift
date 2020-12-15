@@ -1,25 +1,21 @@
 import Foundation
 
-struct ConstructionObject: Codable {
-    let name: String
-    let keys: [String: String]
-    let properties: [String: String]
-}
+typealias ModelInfo = (name: String, keys: [String: String], properties: [String: String])
 
 struct StructGenerator {
     static var currentNode: String?
 
-    static func generate(with parent: Node) -> ConstructionObject {
+    static func generate(with parent: Node) -> ModelInfo {
         var keys: [String: String] = [:]
         var properties: [String: String] = [:]
 
         parent.children.forEach { node in
             keys[node.key] = KeyHandler.update(key: node.key)
-            properties[node.key] = node.type
+            properties[node.key] = node.valueType
         }
 
         currentNode = parent.name
 
-        return ConstructionObject(name: parent.name, keys: keys, properties: properties)
+        return ModelInfo(name: parent.name, keys: keys, properties: properties)
     }
 }

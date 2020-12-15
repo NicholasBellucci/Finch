@@ -3,12 +3,14 @@ import Foundation
 public struct Tree {
     static var rootNode: Node?
 
+    private static var type: GeneratorType = .swift
     private static var parents: [Node] = []
 
-    public static func build(from json: [String: Any]) {
+    public static func build(_ type: GeneratorType, from json: [String: Any]) {
+        self.type = type
         parents = []
         
-        let rootNode = Node(name: String(placeholder: "ModelName"))
+        let rootNode = Node(name: "Root")
         addChildren(to: rootNode, with: json)
         self.rootNode = rootNode
 
@@ -16,21 +18,31 @@ public struct Tree {
     }
 
     public static func write() -> String {
-        var swift = ""
+        var model = ""
 
         parents.forEach {
-            $0.generateSwift()
+            $0.generateModel(for: type)
 
-            if let nodeSwift = $0.swift {
+            if let nodeModel = $0.model {
                 if $0 != parents.first {
-                    swift += "\n"
+                    model += "\n"
                 }
                 
-                swift += nodeSwift
+                model += nodeModel
             }
         }
 
-        return swift
+        return model
+    }
+
+    public static func forEach(_ handler: @escaping (NodeViewModel) -> ()) {
+        parents.forEach {
+            $0.generateModel(for: type)
+
+            if let model = $0.model {
+                handler(NodeViewModel(name: $0.name, model: model))
+            }
+        }
     }
 }
 
@@ -47,7 +59,7 @@ private extension Tree {
         parents.append(node)
 
         json.keys.forEach {
-            let newNode = Node(key: $0, value: json[$0])
+            let newNode = Node(key: $0, value: json[$0], generatorType: type)
             node.add(child: newNode)
 
             if let json = json.value(from: $0) {

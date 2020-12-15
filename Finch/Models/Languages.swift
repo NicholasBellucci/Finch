@@ -18,7 +18,7 @@ public enum Languages: Int, CaseIterable {
         }
     }
 
-    var fileType: String {
+    var fileExtension: String {
         switch self {
         case .swift: return "swift"
         case .kotlin: return "kt"

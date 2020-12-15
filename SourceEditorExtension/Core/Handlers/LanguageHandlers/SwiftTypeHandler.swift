@@ -1,30 +1,6 @@
 import Foundation
 
-enum Primitive {
-    case array(String), custom(CustomType)
-    case bool, date, double, int, string, url, any
-
-    var description: String {
-        switch self {
-        case .array: return "Array"
-        case .bool: return "Bool"
-        case .date: return "Date"
-        case .double: return "Double"
-        case .int: return "Int"
-        case .string: return "String"
-        case .url: return "URL"
-        case .any: return String(placeholder: "Any")
-        case .custom: return "Custom"
-        }
-    }
-}
-
-enum CustomType {
-    case object
-    case array
-}
-
-struct TypeHandler {
+struct SwiftTypeHandler {
     static func detectType(of value: Any) -> Primitive? {
         if value is [[String: Any]] {
             return .custom(.array)

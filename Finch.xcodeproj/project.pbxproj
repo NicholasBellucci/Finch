@@ -23,6 +23,11 @@
 		4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F14F2588250500AA7D4D /* Notification+Names.swift */; };
 		4C23F1542588271900AA7D4D /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1532588271900AA7D4D /* Languages.swift */; };
 		4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1582588447B00AA7D4D /* WindowAccessor.swift */; };
+		4C23F161258858A100AA7D4D /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F160258858A100AA7D4D /* NodeViewModel.swift */; };
+		4C23F165258861E100AA7D4D /* KotlinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F164258861E100AA7D4D /* KotlinGenerator.swift */; };
+		4C23F16825886DE900AA7D4D /* GeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F16725886DE900AA7D4D /* GeneratorType.swift */; };
+		4C23F175258874DF00AA7D4D /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F174258874DF00AA7D4D /* Primitive.swift */; };
+		4C23F1782588751300AA7D4D /* KotlinTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1772588751300AA7D4D /* KotlinTypeHandler.swift */; };
 		4C61063925830C6800791079 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61063825830C6800791079 /* ColoredView.swift */; };
 		4C7855B8258330D0001FC7D1 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7855B6258330D0001FC7D1 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; };
@@ -35,7 +40,7 @@
 		4C7855CC25833277001FC7D1 /* DateFormatter+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C82580822900DE3186 /* DateFormatter+Types.swift */; };
 		4C7855D02583327E001FC7D1 /* SwiftGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376CE2580822900DE3186 /* SwiftGenerator.swift */; };
 		4C7855D12583327E001FC7D1 /* StructGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376CD2580822900DE3186 /* StructGenerator.swift */; };
-		4C7855D425833282001FC7D1 /* TypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C42580822900DE3186 /* TypeHandler.swift */; };
+		4C7855D425833282001FC7D1 /* SwiftTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C42580822900DE3186 /* SwiftTypeHandler.swift */; };
 		4C7855D525833282001FC7D1 /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C52580822900DE3186 /* KeyHandler.swift */; };
 		4C7855D825833287001FC7D1 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D02580822900DE3186 /* Copyable.swift */; };
 		4C7855DA2583328B001FC7D1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D22580822900DE3186 /* Tree.swift */; };
@@ -122,7 +127,7 @@
 		4C1376B1258081E700DE3186 /* ConvertJSONCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertJSONCommand.swift; sourceTree = "<group>"; };
 		4C1376B3258081E700DE3186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1376B4258081E700DE3186 /* SourceEditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SourceEditorExtension.entitlements; sourceTree = "<group>"; };
-		4C1376C42580822900DE3186 /* TypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHandler.swift; sourceTree = "<group>"; };
+		4C1376C42580822900DE3186 /* SwiftTypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeHandler.swift; sourceTree = "<group>"; };
 		4C1376C52580822900DE3186 /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
 		4C1376C72580822900DE3186 /* Tree+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tree+Debug.swift"; sourceTree = "<group>"; };
 		4C1376C82580822900DE3186 /* DateFormatter+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Types.swift"; sourceTree = "<group>"; };
@@ -140,6 +145,11 @@
 		4C23F14F2588250500AA7D4D /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		4C23F1532588271900AA7D4D /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		4C23F1582588447B00AA7D4D /* WindowAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
+		4C23F160258858A100AA7D4D /* NodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewModel.swift; sourceTree = "<group>"; };
+		4C23F164258861E100AA7D4D /* KotlinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinGenerator.swift; sourceTree = "<group>"; };
+		4C23F16725886DE900AA7D4D /* GeneratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorType.swift; sourceTree = "<group>"; };
+		4C23F174258874DF00AA7D4D /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
+		4C23F1772588751300AA7D4D /* KotlinTypeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinTypeHandler.swift; sourceTree = "<group>"; };
 		4C61063825830C6800791079 /* ColoredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
 		4C7855B4258330D0001FC7D1 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7855B6258330D0001FC7D1 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -265,8 +275,8 @@
 		4C1376C32580822900DE3186 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376C42580822900DE3186 /* TypeHandler.swift */,
 				4C1376C52580822900DE3186 /* KeyHandler.swift */,
+				4C23F17E2588753400AA7D4D /* LanguageHandlers */,
 			);
 			name = Handlers;
 			path = ../SourceEditorExtension/Core/Handlers;
@@ -290,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				4C1376CD2580822900DE3186 /* StructGenerator.swift */,
-				4C1376CE2580822900DE3186 /* SwiftGenerator.swift */,
+				4C23F17B2588752300AA7D4D /* LanguageGenerators */,
 			);
 			name = Generators;
 			path = ../SourceEditorExtension/Core/Generators;
@@ -357,6 +367,41 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4C23F15F2588587C00AA7D4D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4C23F160258858A100AA7D4D /* NodeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4C23F16A25886DED00AA7D4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C23F16725886DE900AA7D4D /* GeneratorType.swift */,
+				4C23F174258874DF00AA7D4D /* Primitive.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C23F17B2588752300AA7D4D /* LanguageGenerators */ = {
+			isa = PBXGroup;
+			children = (
+				4C1376CE2580822900DE3186 /* SwiftGenerator.swift */,
+				4C23F164258861E100AA7D4D /* KotlinGenerator.swift */,
+			);
+			path = LanguageGenerators;
+			sourceTree = "<group>";
+		};
+		4C23F17E2588753400AA7D4D /* LanguageHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				4C23F1772588751300AA7D4D /* KotlinTypeHandler.swift */,
+				4C1376C42580822900DE3186 /* SwiftTypeHandler.swift */,
+			);
+			path = LanguageHandlers;
+			sourceTree = "<group>";
+		};
 		4C61063725830C4900791079 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,8 +417,10 @@
 				4C1376C62580822900DE3186 /* Extensions */,
 				4C1376CC2580822900DE3186 /* Generators */,
 				4C1376C32580822900DE3186 /* Handlers */,
+				4C23F16A25886DED00AA7D4D /* Models */,
 				4C1376CF2580822900DE3186 /* Protocols */,
 				4C1376D12580822900DE3186 /* Tree */,
+				4C23F15F2588587C00AA7D4D /* ViewModels */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -570,15 +617,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C23F161258858A100AA7D4D /* NodeViewModel.swift in Sources */,
+				4C23F1782588751300AA7D4D /* KotlinTypeHandler.swift in Sources */,
 				4C7855D02583327E001FC7D1 /* SwiftGenerator.swift in Sources */,
 				4C7855D825833287001FC7D1 /* Copyable.swift in Sources */,
 				4C7855C525833270001FC7D1 /* Data+Utils.swift in Sources */,
-				4C7855D425833282001FC7D1 /* TypeHandler.swift in Sources */,
+				4C7855D425833282001FC7D1 /* SwiftTypeHandler.swift in Sources */,
 				4C7855C825833277001FC7D1 /* Array+Utils.swift in Sources */,
 				4C7855DB2583328B001FC7D1 /* Node.swift in Sources */,
+				4C23F16825886DE900AA7D4D /* GeneratorType.swift in Sources */,
+				4C23F175258874DF00AA7D4D /* Primitive.swift in Sources */,
 				4C7855CC25833277001FC7D1 /* DateFormatter+Types.swift in Sources */,
 				4C7855D12583327E001FC7D1 /* StructGenerator.swift in Sources */,
 				4C7855D525833282001FC7D1 /* KeyHandler.swift in Sources */,
+				4C23F165258861E100AA7D4D /* KotlinGenerator.swift in Sources */,
 				4C7855CB25833277001FC7D1 /* Tree+Debug.swift in Sources */,
 				4C7855DA2583328B001FC7D1 /* Tree.swift in Sources */,
 				4C7855C925833277001FC7D1 /* String+Utils.swift in Sources */,
@@ -782,6 +834,7 @@
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KQQS5CV32Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SourceEditorExtension/Resources/Info.plist;
@@ -790,6 +843,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -803,6 +857,7 @@
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KQQS5CV32Z;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SourceEditorExtension/Resources/Info.plist;
@@ -811,6 +866,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
