@@ -28,6 +28,7 @@ struct SavePanel: ViewModifier {
         panel.beginSheetModal(for: window) { response in
             if response == NSApplication.ModalResponse.OK, let fileUrl = panel.url {
                 okAction(fileUrl)
+                isPresented = false
             }
 
             if response == NSApplication.ModalResponse.cancel {
