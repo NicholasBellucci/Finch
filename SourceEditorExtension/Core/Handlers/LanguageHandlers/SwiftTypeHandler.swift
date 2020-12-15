@@ -46,9 +46,11 @@ struct SwiftTypeHandler {
     }
 
     static func isURL(_ string: String) -> Bool {
-        let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray: [regEx])
-        return predicate.evaluate(with: string)
+        NSPredicate(
+            format:"SELF MATCHES %@",
+            argumentArray: ["((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"]
+        )
+        .evaluate(with: string)
     }
 
     static func isDate(_ string: String) -> Bool {
