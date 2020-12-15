@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Core
 
 public enum Languages: Int, CaseIterable {
     case swift
@@ -18,10 +19,17 @@ public enum Languages: Int, CaseIterable {
         }
     }
 
-    var fileType: String {
+    var fileExtension: String {
         switch self {
         case .swift: return "swift"
         case .kotlin: return "kt"
+        }
+    }
+
+    var generatorType: GeneratorType {
+        switch self {
+        case .swift: return .swift
+        case .kotlin: return .kotlin
         }
     }
 }

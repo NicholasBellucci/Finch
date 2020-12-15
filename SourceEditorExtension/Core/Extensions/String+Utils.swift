@@ -2,8 +2,13 @@ import Foundation
 
 extension String {
     /// Adds brackets around String
-    func appendBrackeys() -> String {
+    func appendBrackets() -> String {
         return "[\(self)]"
+    }
+
+    /// Adds brackets around String
+    func appendCarrots() -> String {
+        return "<\(self)>"
     }
     
     /**
@@ -37,7 +42,17 @@ extension String {
      */
     func objectArray(from json: Any?) -> String? {
         guard json is [[String: Any]] else { return self }
-        return singular(from: json).appendBrackeys()
+        return singular(from: json).appendBrackets()
+    }
+
+    /**
+     Appends brackets to singular objects in an array.
+
+     Foos -> [Foo]
+     */
+    func objectList(from json: Any?) -> String? {
+        guard json is [[String: Any]] else { return self }
+        return "List\(singular(from: json).appendCarrots())"
     }
 
     /**

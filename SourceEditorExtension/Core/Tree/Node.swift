@@ -4,8 +4,8 @@ class Node: Codable, Copyable {
     /// This is the exact key from the json.
     var key: String
 
-    /// Variable type
-    var type: String?
+    /// Value type
+    var valueType: String?
 
     /**
      Name of node.
@@ -20,10 +20,10 @@ class Node: Codable, Copyable {
     var children: [Node] = []
 
     /**
-     Generated swift code associated with Node.
-     Nodes without children will not contain any generated swift.
+     Generated model associated with Node.
+     Nodes without children will not contain a generated model.
      */
-    var swift: String?
+    var model: String?
 
     /**
      The key's level in the JSON data.
@@ -43,15 +43,15 @@ class Node: Codable, Copyable {
         self.name = name
     }
 
-    init(key: String, value: Any? = nil) {
+    init(key: String, value: Any? = nil, generatorType: GeneratorType) {
         self.key = key
         self.name = key.camelCased().capitalize().singular(from: value)
-        self.setType(with: value)
+        self.setType(with: value, generatorType: generatorType)
     }
 
     required init(instance: Node) {
         self.key = instance.key
-        self.type = instance.type
+        self.valueType = instance.valueType
 
         name = instance.name
         children = instance.children
@@ -87,21 +87,27 @@ extension Node {
     }
 
     /**
-     Generates the swift code for the node.
-     Swift code should only exist on nodes that have children.
+     Generates the model for the node.
+     A model should only exist on nodes that have children.
      */
-    func generateSwift() {
+    func generateModel(for type: GeneratorType) {
         let generatedStruct = StructGenerator.generate(with: self)
-        swift = SwiftGenerator.generate(with: generatedStruct)
+
+        switch type {
+        case .swift:
+            model = SwiftGenerator.generate(with: generatedStruct)
+        case .kotlin:
+            model = KotlinGenerator.generate(with: generatedStruct)
+        }
     }
 
     func updateType() {
-        guard let type = type else { return }
+        guard let type = valueType else { return }
 
         if type.contains("[") {
-            self.type = name.appendBrackeys()
+            valueType = name.appendBrackets()
         } else {
-            self.type = name
+            valueType = name
         }
     }
 }
@@ -121,21 +127,23 @@ private extension Node {
         }
     }
 
-    func setType(with value: Any?) {
-        guard let value = value, let type = TypeHandler.detectType(of: value) else { return }
+    func setType(with value: Any?, generatorType: GeneratorType) {
+        guard let value = value, let type = generatorType.detectType(of: value) else { return }
 
         switch type {
         case .array(let type):
-            self.type = type
+            valueType = type
         case .custom(let type):
             switch type {
             case .object:
-                self.type = name
+                valueType = name
             case .array:
-                self.type = name.objectArray(from: value)
+                valueType = name.objectArray(from: value)
+            case .list:
+                valueType = name.objectList(from: value)
             }
         default:
-            self.type = type.description
+            valueType = type.description
         }
     }
 }

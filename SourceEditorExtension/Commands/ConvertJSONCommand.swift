@@ -21,7 +21,7 @@ class ConvertJSONCommand: NSObject, XCSourceEditorCommand {
             return
         }
 
-        Tree.build(from: jsonArray)
+        Tree.build(.swift, from: jsonArray)
         invocation.buffer.lines.insert(Tree.write(), at: selection.start.line)
 
         completionHandler(nil)

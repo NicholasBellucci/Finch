@@ -1,15 +1,15 @@
 import Foundation
 
 struct SwiftGenerator {
-    static func generate(with model: ConstructionObject) -> String {
+    static func generate(with viewModel: ModelInfo) -> String {
         var swift = ""
-        swift += swiftObject(with: model)
+        swift += swiftObject(with: viewModel)
         return swift
     }
 
-    private static func swiftObject(with model: ConstructionObject) -> String {
-        var swift = "public struct \(model.name): Codable {\n"
-        swift += swiftFor(properties: model.properties)
+    private static func swiftObject(with viewModel: ModelInfo) -> String {
+        var swift = "public struct \(viewModel.name): Codable {\n"
+        swift += swiftFor(properties: viewModel.properties)
         swift += "}\n"
         return swift
     }

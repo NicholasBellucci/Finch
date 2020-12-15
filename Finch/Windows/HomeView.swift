@@ -11,7 +11,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var window: NSWindow?
-    @State private var selectedLanguage = 0
+    @State private var language: Languages = .swift
     @State private var json: String = ""
     @State private var conversion: String = ""
 
@@ -25,13 +25,17 @@ struct HomeView: View {
 
                 Spacer()
 
-                Picker(selection: $selectedLanguage, label: Text("Language")) {
+                Picker(
+                    selection: $language,
+                    label: Button("Export All") {
+                        saveFolder()
+                    }
+                ) {
                     ForEach(Languages.allCases, id: \.self) {
                         Text($0.title)
-                            .tag($0.rawValue)
+                            .tag($0)
                     }
                 }
-                .labelsHidden()
                 .scaledToFit()
                 .pickerStyle(DefaultPickerStyle())
                 .frame(alignment: .trailing)
@@ -40,7 +44,7 @@ struct HomeView: View {
             HStack(spacing: 20) {
                 SyntaxTextView(text: $json, theme: DefaultThemeDark())
                     .textDidChange { text in
-                        conversion = conversion(from: text)
+                        conversion = convert(text)
                     }
                     .cornerRadius(5)
 
@@ -53,38 +57,60 @@ struct HomeView: View {
         .padding(20)
         .background(Color.appBackground)
         .onReceive(saveFileNotification) { publisher in
-            if let saveUrl = publisher.object as? URL {
-                do {
-                    try conversion.write(to: saveUrl, atomically: true, encoding: .utf8)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+            exportFiles(publisher)
+        }
+        .onChange(language) { _ in
+            conversion = convert(json)
         }
     }
 
-    func conversion(from json: String) -> String {
+    func convert(_ json: String) -> String {
         if let data = json.data(using: .utf8), let jsonArray = data.serialized() {
-            Tree.build(from: jsonArray)
+            Tree.build(language.generatorType, from: jsonArray)
             return Tree.write()
         }
 
         return ""
     }
 
-    func exportFile() {
-        guard let window = window,
-              let selectedLanguage = Languages(rawValue: selectedLanguage) else { return }
+    func saveFolder() {
+        guard let window = window else { return }
 
         let panel = NSSavePanel()
         panel.title = ""
-        panel.nameFieldLabel = "Save As:"
-        panel.nameFieldStringValue = "Untitled"
+        panel.nameFieldLabel = "Export All To:"
+        panel.nameFieldStringValue = "Models"
         panel.canCreateDirectories = true
-        panel.allowedFileTypes = [selectedLanguage.fileType]
+        panel.allowedFileTypes = []
         panel.beginSheetModal(for: window) { response in
             if response == NSApplication.ModalResponse.OK, let fileUrl = panel.url {
                 NotificationCenter.default.post(name: .saveFile, object: fileUrl)
+            }
+        }
+    }
+
+    func exportFiles(_ publisher: NotificationCenter.Publisher.Output) {
+        let fileExtension = language.fileExtension
+
+        if let url = publisher.object as? URL {
+            let fileManager = FileManager.default
+            if !fileManager.fileExists(atPath: url.path) {
+                do {
+                    try fileManager.createDirectory(atPath: url.path, withIntermediateDirectories: true, attributes: nil)
+
+                    Tree.forEach {
+                        let fileURL = url.appendingPathComponent("\($0.name).\(fileExtension)")
+                        do {
+                            try $0.model.write(to: fileURL, atomically: true, encoding: .utf8)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
+            } else {
+                print("Folder already exists")
             }
         }
     }
