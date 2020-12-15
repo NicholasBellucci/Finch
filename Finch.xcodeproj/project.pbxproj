@@ -20,6 +20,10 @@
 		4C16DBD32582FA9700AE4917 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBD22582FA9700AE4917 /* HomeView.swift */; };
 		4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBD82582FE1D00AE4917 /* TextView.swift */; };
 		4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16DBDD258306F200AE4917 /* Color+App.swift */; };
+		4C1C84462589621100915B24 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 4C1C84452589621100915B24 /* ComposableArchitecture */; };
+		4C1C844A2589672300915B24 /* AppDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C84492589672300915B24 /* AppDomain.swift */; };
+		4C1C844D2589673F00915B24 /* HomeDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C844C2589673F00915B24 /* HomeDomain.swift */; };
+		4C1C845025896ECD00915B24 /* SavePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C844F25896ECD00915B24 /* SavePanel.swift */; };
 		4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F14F2588250500AA7D4D /* Notification+Names.swift */; };
 		4C23F1542588271900AA7D4D /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1532588271900AA7D4D /* Languages.swift */; };
 		4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1582588447B00AA7D4D /* WindowAccessor.swift */; };
@@ -143,6 +147,9 @@
 		4C16DBD22582FA9700AE4917 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4C16DBD82582FE1D00AE4917 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		4C16DBDD258306F200AE4917 /* Color+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+App.swift"; sourceTree = "<group>"; };
+		4C1C84492589672300915B24 /* AppDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDomain.swift; sourceTree = "<group>"; };
+		4C1C844C2589673F00915B24 /* HomeDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDomain.swift; sourceTree = "<group>"; };
+		4C1C844F25896ECD00915B24 /* SavePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePanel.swift; sourceTree = "<group>"; };
 		4C23F14F2588250500AA7D4D /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		4C23F1532588271900AA7D4D /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		4C23F1582588447B00AA7D4D /* WindowAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
@@ -167,6 +174,7 @@
 			files = (
 				4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */,
 				4C78564A25841EA1001FC7D1 /* Toucan in Frameworks */,
+				4C1C84462589621100915B24 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				4C137692258081B800DE3186 /* Finch.swift */,
+				4C1C84482589671500915B24 /* Domains */,
 				4C16DBDC258306DF00AE4917 /* Extensions */,
 				4C23F1522588270E00AA7D4D /* Models */,
 				4C137698258081BA00DE3186 /* Preview Content */,
@@ -361,6 +370,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4C1C84482589671500915B24 /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				4C1C84492589672300915B24 /* AppDomain.swift */,
+				4C1C844C2589673F00915B24 /* HomeDomain.swift */,
+			);
+			path = Domains;
+			sourceTree = "<group>";
+		};
 		4C23F1522588270E00AA7D4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				4C23F18525887E1000AA7D4D /* ChangeObserver.swift */,
+				4C1C844F25896ECD00915B24 /* SavePanel.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -478,6 +497,7 @@
 			name = Finch;
 			packageProductDependencies = (
 				4C78564925841EA1001FC7D1 /* Toucan */,
+				4C1C84452589621100915B24 /* ComposableArchitecture */,
 			);
 			productName = Finch;
 			productReference = 4C13768F258081B800DE3186 /* Finch.app */;
@@ -551,6 +571,7 @@
 			mainGroup = 4C137686258081B800DE3186;
 			packageReferences = (
 				4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */,
+				4C1C84442589621100915B24 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 4C137690258081B800DE3186 /* Products */;
 			projectDirPath = "";
@@ -594,16 +615,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1C844D2589673F00915B24 /* HomeDomain.swift in Sources */,
 				4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */,
 				4C23F18625887E1000AA7D4D /* ChangeObserver.swift in Sources */,
 				4C16DBD32582FA9700AE4917 /* HomeView.swift in Sources */,
 				4C23F1542588271900AA7D4D /* Languages.swift in Sources */,
+				4C1C844A2589672300915B24 /* AppDomain.swift in Sources */,
 				4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */,
 				4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */,
 				4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */,
 				4C137695258081B800DE3186 /* LandingView.swift in Sources */,
 				4C137693258081B800DE3186 /* Finch.swift in Sources */,
 				4C61063925830C6800791079 /* ColoredView.swift in Sources */,
+				4C1C845025896ECD00915B24 /* SavePanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1002,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4C1C84442589621100915B24 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 		4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/Toucan.git";
@@ -989,6 +1021,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4C1C84452589621100915B24 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C1C84442589621100915B24 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		4C78564925841EA1001FC7D1 /* Toucan */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4C78564825841EA1001FC7D1 /* XCRemoteSwiftPackageReference "Toucan" */;
