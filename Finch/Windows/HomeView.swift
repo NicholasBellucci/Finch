@@ -59,7 +59,8 @@ struct HomeView: View {
                             get: \.conversion,
                             send: HomeDomain.Action.setConversion
                         ),
-                        theme: DefaultThemeDark()
+                        theme: DefaultThemeDark(),
+                        lexer: viewStore.language.lexer
                     )
                     .isEditable(false)
                     .cornerRadius(5)

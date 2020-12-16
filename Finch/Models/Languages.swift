@@ -7,6 +7,7 @@
 
 import Foundation
 import Core
+import Toucan
 
 public enum Language: Int, CaseIterable {
     case swift
@@ -30,6 +31,13 @@ public enum Language: Int, CaseIterable {
         switch self {
         case .swift: return .swift
         case .kotlin: return .kotlin
+        }
+    }
+
+    var lexer: RegexLexer {
+        switch self {
+        case .swift: return SwiftLexer()
+        case .kotlin: return KotlinLexer()
         }
     }
 }

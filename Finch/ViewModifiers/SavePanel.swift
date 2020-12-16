@@ -1,3 +1,10 @@
+//
+//  SavePanel.swift
+//  Finch
+//
+//  Created by Nicholas Bellucci on 12/14/20.
+//
+
 import SwiftUI
 
 struct SavePanel: ViewModifier {
