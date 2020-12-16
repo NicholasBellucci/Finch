@@ -16,10 +16,8 @@ struct SavePanel: ViewModifier {
     func body(content: Content) -> some View {
         content
             .bindWindow($window)
-            .onChange(isPresented) { _ in
-                if isPresented {
-                    save()
-                }
+            .onChange(of: isPresented) { _ in
+                save()
             }
     }
 

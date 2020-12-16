@@ -82,6 +82,15 @@ struct ConversionView: View {
                 viewStore.send(.didBeginEditing)
             }
         }
+        .toolbar {
+            ToolbarItemGroup {
+                Button {
+
+                } label: {
+                    Image(systemName: "gear")
+                }
+            }
+        }
     }
 }
 

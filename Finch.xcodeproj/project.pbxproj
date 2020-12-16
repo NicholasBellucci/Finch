@@ -40,7 +40,6 @@
 		4C23F16825886DE900AA7D4D /* GeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F16725886DE900AA7D4D /* GeneratorType.swift */; };
 		4C23F175258874DF00AA7D4D /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F174258874DF00AA7D4D /* Primitive.swift */; };
 		4C23F1782588751300AA7D4D /* KotlinTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1772588751300AA7D4D /* KotlinTypeHandler.swift */; };
-		4C23F18625887E1000AA7D4D /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F18525887E1000AA7D4D /* ChangeObserver.swift */; };
 		4C7855B8258330D0001FC7D1 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7855B6258330D0001FC7D1 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C7855C525833270001FC7D1 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEA98862581455900BA8650 /* Data+Utils.swift */; };
 		4C7855C825833277001FC7D1 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C92580822900DE3186 /* Array+Utils.swift */; };
@@ -167,7 +166,6 @@
 		4C23F16725886DE900AA7D4D /* GeneratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorType.swift; sourceTree = "<group>"; };
 		4C23F174258874DF00AA7D4D /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		4C23F1772588751300AA7D4D /* KotlinTypeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinTypeHandler.swift; sourceTree = "<group>"; };
-		4C23F18525887E1000AA7D4D /* ChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeObserver.swift; sourceTree = "<group>"; };
 		4C7855B4258330D0001FC7D1 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7855B6258330D0001FC7D1 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		4C7855B7258330D0001FC7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -454,7 +452,6 @@
 		4C61063725830C4900791079 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				4C23F18525887E1000AA7D4D /* ChangeObserver.swift */,
 				4C1C844F25896ECD00915B24 /* SavePanel.swift */,
 			);
 			path = ViewModifiers;
@@ -640,7 +637,6 @@
 				4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */,
 				4C09F49D2589B78E00162C7D /* Persistence.swift in Sources */,
 				4C09F558258AB81800162C7D /* Publisher+Utils.swift in Sources */,
-				4C23F18625887E1000AA7D4D /* ChangeObserver.swift in Sources */,
 				4C16DBD32582FA9700AE4917 /* ConversionView.swift in Sources */,
 				4C23F1542588271900AA7D4D /* Languages.swift in Sources */,
 				4C09F4AA2589BF9400162C7D /* Finch.xcdatamodeld in Sources */,
@@ -846,7 +842,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -874,7 +870,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -898,6 +894,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -922,6 +919,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Finch.SourceEditorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -950,7 +948,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -980,7 +978,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

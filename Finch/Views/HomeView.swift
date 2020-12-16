@@ -13,36 +13,39 @@ struct HomeView: View {
 
     var body: some View {
         WithViewStore(store) { viewStore in
-            if #available(OSX 11.0, *) {
-                NavigationView {
-                    List(selection: viewStore.binding(get: \.selectedId, send: HomeDomain.Action.selectConversion)) {
-                        ForEachStore(
-                            store.scope(
-                                state: \.conversions,
-                                action: HomeDomain.Action.conversion(index:action:)
+            NavigationView {
+                List(selection: viewStore.binding(get: \.selectedId, send: HomeDomain.Action.selectConversion)) {
+                    ForEachStore(
+                        store.scope(
+                            state: \.conversions,
+                            action: HomeDomain.Action.conversion(index:action:)
+                        )
+                    ) { store in
+                        SidebarCell(
+                            store: store,
+                            selection: viewStore.binding(
+                                get: \.selectedId,
+                                send: HomeDomain.Action.selectConversion
                             )
-                        ) { store in
-                            SidebarCell(
-                                store: store,
-                                selection: viewStore.binding(
-                                    get: \.selectedId,
-                                    send: HomeDomain.Action.selectConversion
-                                )
-                            )
+                        )
+                    }
+                }
+                .listStyle(SidebarListStyle())
+                .frame(minWidth: 200)
+                .toolbar {
+                    ToolbarItemGroup {
+                        Spacer()
+
+                        Button {
+                            viewStore.send(.createBlankConversion)
+                        } label: {
+                            Image(systemName: "plus")
                         }
                     }
-                    .listStyle(SidebarListStyle())
                 }
-                .onAppear {
-                    viewStore.send(.onAppear)
-                }
-                .toolbar {
-                    Button(action: { viewStore.send(.deleteAll) }) {
-                        Image(systemName: "gear")
-                    }
-                }
-            } else {
-                // Fallback on earlier versions
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
             }
         }
     }
