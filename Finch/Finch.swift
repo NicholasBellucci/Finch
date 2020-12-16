@@ -37,11 +37,6 @@ struct Finch: App {
         WindowGroup {
             HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
                 .navigationTitle("Untitled Model")
-                .toolbar {
-                    Button(action: {}) {
-                        Image(systemName: "gear")
-                    }
-                }
         }
         .commands {
             SidebarCommands()

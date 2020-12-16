@@ -25,10 +25,9 @@ struct AppDomain {
             case .home: return .none
             }
         },
-        HomeDomain.reducer
-            .pullback(
-                state: \.homeState,
-                action: /AppDomain.Action.home,
-                environment: { _ in HomeDomain.Environment() })
+        HomeDomain.reducer.pullback(
+            state: \.homeState,
+            action: /AppDomain.Action.home,
+            environment: { _ in HomeDomain.Environment() })
     )
 }

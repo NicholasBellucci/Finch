@@ -10,8 +10,8 @@ import Cocoa
 import Core
 
 struct ConversionDomain {
-    struct State: Equatable, Identifiable {
-        var id: UUID { conversion.id }
+    struct State: Equatable, Identifiable, Hashable {
+        var id: String { conversion.id.uuidString }
         var conversion: Conversion
         var convertedString: String = ""
         var showSave: Bool = false
@@ -19,6 +19,7 @@ struct ConversionDomain {
     }
 
     enum Action: Equatable {
+        case didBeginEditing
         case export(URL)
         case onAppear
         case setConversion(String)
@@ -32,6 +33,8 @@ struct ConversionDomain {
 
     static let reducer = Reducer<State, Action, Environment> { state, action, _ in
         switch action {
+        case .didBeginEditing:
+            return .none
         case .export(let url):
             let fileExtension = state.language.fileExtension
 

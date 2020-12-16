@@ -12,6 +12,7 @@ import SwiftUI
 
 struct ConversionView: View {
     let store: Store<ConversionDomain.State, ConversionDomain.Action>
+    var isPlaceholder: Bool = false
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -27,15 +28,14 @@ struct ConversionView: View {
                             get: \.language,
                             send: ConversionDomain.Action.setLanguage
                         ),
-                        label: Button("Export All") {
-                            viewStore.send(.showSave(true))
-                        }
+                        label: Text("Select Language")
                     ) {
                         ForEach(Language.allCases, id: \.self) {
                             Text($0.title)
                                 .tag($0)
                         }
                     }
+                    .labelsHidden()
                     .scaledToFit()
                     .pickerStyle(DefaultPickerStyle())
                     .frame(alignment: .trailing)
@@ -49,6 +49,7 @@ struct ConversionView: View {
                         ),
                         theme: DefaultThemeDark()
                     )
+                    .isFirstResponder(!isPlaceholder)
                     .textDidChange { text in
                         viewStore.send(.setJSON(text))
                     }
@@ -66,6 +67,7 @@ struct ConversionView: View {
                     .cornerRadius(5)
                 }
             }
+            .allowsHitTesting(!isPlaceholder)
             .padding(20)
             .background(Color.appBackground)
             .savePanel(
@@ -76,7 +78,9 @@ struct ConversionView: View {
             ) { url in
                 viewStore.send(.export(url))
             }
-
+            .onTapGesture {
+                viewStore.send(.didBeginEditing)
+            }
         }
     }
 }
