@@ -35,7 +35,7 @@ struct Finch: App {
 
     var body: some Scene {
         WindowGroup {
-            Sidebar(store: appStore.scope(state: \.sidebarState, action: AppDomain.Action.sidebar))
+            HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
                 .navigationTitle("Untitled Model")
                 .toolbar {
                     Button(action: {}) {
@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let contentView = Sidebar(store: appStore.scope(state: \.sidebarState, action: AppDomain.Action.sidebar))
+        let contentView = HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 300),

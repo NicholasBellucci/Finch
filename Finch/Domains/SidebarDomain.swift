@@ -9,7 +9,7 @@ import ComposableArchitecture
 import Cocoa
 import Core
 
-struct SidebarDomain {
+struct HomeDomain {
     struct State: Equatable {
         var conversions: [ConversionDomain.State] = []
     }
