@@ -11,11 +11,11 @@ import Core
 
 struct SidebarDomain {
     struct State: Equatable {
-        var homeState = HomeDomain.State()
+        var conversions: [ConversionDomain.State] = []
     }
 
     enum Action: Equatable {
-        case home(HomeDomain.Action)
+        case conversion(index: Int, _ action: ConversionDomain.Action)
         case onAppear
     }
 
@@ -25,7 +25,7 @@ struct SidebarDomain {
 
     static let reducer = Reducer<State, Action, Environment> { state, action, environment in
         switch action {
-        case .home:
+        case .conversion:
             return .none
         case .onAppear:
 //            let entity = NSEntityDescription.entity(forEntityName: "Conversion", in: context)
@@ -39,23 +39,17 @@ struct SidebarDomain {
 //            } catch {
 //               print("Failed saving")
 //            }
-
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversions")
+            let request = Conversion.createFetchRequest()
             request.returnsObjectsAsFaults = false
 
             do {
-                let result = try environment.viewContext.fetch(request)
-                for data in result as! [NSManagedObject] {
-                    print(data.value(forKey: "name") as? String)
-                }
+                let conversions = try environment.viewContext.fetch(request)
+                state.conversions = conversions.map { ConversionDomain.State(conversion: $0) }
             } catch {
-
                 print("Failed")
             }
-
 
             return .none
         }
     }
 }
-

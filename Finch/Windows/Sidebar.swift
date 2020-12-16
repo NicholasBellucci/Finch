@@ -15,16 +15,11 @@ struct Sidebar: View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 List {
-                    NavigationLink(
-                        destination: HomeView(
-                            store: store.scope(
-                                state: \.homeState,
-                                action: SidebarDomain.Action.home
-                            )
-                        )
-                    ) {
+                    ForEachStore(store.scope(state: \.conversions, action: SidebarDomain.Action.conversion(index:_:)), content: ConversionView.init(store:))
 
-                    }
+//                    NavigationLink(destination: ConversionView(store: store)) {
+//                        Text("gere")
+//                    }
                 }
                 .listStyle(SidebarListStyle())
                 .onAppear {

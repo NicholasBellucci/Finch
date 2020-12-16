@@ -10,8 +10,8 @@ import Core
 import Toucan
 import SwiftUI
 
-struct HomeView: View {
-    let store: Store<HomeDomain.State, HomeDomain.Action>
+struct ConversionView: View {
+    let store: Store<ConversionDomain.State, ConversionDomain.Action>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -25,7 +25,7 @@ struct HomeView: View {
                     Picker(
                         selection: viewStore.binding(
                             get: \.language,
-                            send: HomeDomain.Action.setLanguage
+                            send: ConversionDomain.Action.setLanguage
                         ),
                         label: Button("Export All") {
                             viewStore.send(.showSave(true))
@@ -44,8 +44,8 @@ struct HomeView: View {
                 HStack(spacing: 20) {
                     SyntaxTextView(
                         text: viewStore.binding(
-                            get: \.json,
-                            send: HomeDomain.Action.setJSON
+                            get: \.conversion.json,
+                            send: ConversionDomain.Action.setJSON
                         ),
                         theme: DefaultThemeDark()
                     )
@@ -56,8 +56,8 @@ struct HomeView: View {
 
                     SyntaxTextView(
                         text: viewStore.binding(
-                            get: \.conversion,
-                            send: HomeDomain.Action.setConversion
+                            get: \.convertedString,
+                            send: ConversionDomain.Action.setConversion
                         ),
                         theme: DefaultThemeDark(),
                         lexer: viewStore.language.lexer
@@ -71,7 +71,7 @@ struct HomeView: View {
             .savePanel(
                 isPresented: viewStore.binding(
                     get: \.showSave,
-                    send: HomeDomain.Action.showSave
+                    send: ConversionDomain.Action.showSave
                 )
             ) { url in
                 viewStore.send(.export(url))
@@ -81,16 +81,16 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(
-            store: Store(
-                initialState: HomeDomain.State(),
-                reducer: HomeDomain.reducer,
-                environment: HomeDomain.Environment()
-            )
-        )
-        .environment(\.colorScheme, .dark)
-        .frame(width: 1000, height: 500)
-    }
-}
+//struct ConversionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConversionView(
+//            store: Store(
+//                initialState: ConversionDomain.State(),
+//                reducer: ConversionDomain.reducer,
+//                environment: ConversionDomain.Environment()
+//            )
+//        )
+//        .environment(\.colorScheme, .dark)
+//        .frame(width: 1000, height: 500)
+//    }
+//}

@@ -9,11 +9,12 @@ import ComposableArchitecture
 import Cocoa
 import Core
 
-struct HomeDomain {
-    struct State: Equatable {
-        var conversion: String = ""
+struct ConversionDomain {
+    struct State: Equatable, Identifiable {
+        var id: UUID { conversion.id }
+        var conversion: Conversion
+        var convertedString: String = ""
         var showSave: Bool = false
-        var json: String = ""
         var language: Language = .swift
     }
 
@@ -58,14 +59,14 @@ struct HomeDomain {
         case .onAppear:
             return .none
         case .setConversion(let string):
-            state.conversion = string
+            state.convertedString = string
             return .none
         case .setJSON(let string):
-            state.json = string
-            return Effect(value: .setConversion(convert(json: state.json, with: state.language)))
+            state.conversion.json = string
+            return Effect(value: .setConversion(convert(json: state.conversion.json, with: state.language)))
         case .setLanguage(let language):
             state.language = language
-            return Effect(value: .setConversion(convert(json: state.json, with: state.language)))
+            return Effect(value: .setConversion(convert(json: state.conversion.json, with: state.language)))
         case .showSave(let value):
             state.showSave = value
             return .none
