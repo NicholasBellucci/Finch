@@ -46,7 +46,6 @@
 		4C7855D02583327E001FC7D1 /* SwiftGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376CE2580822900DE3186 /* SwiftGenerator.swift */; };
 		4C7855D12583327E001FC7D1 /* StructGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376CD2580822900DE3186 /* StructGenerator.swift */; };
 		4C7855D425833282001FC7D1 /* SwiftTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C42580822900DE3186 /* SwiftTypeHandler.swift */; };
-		4C7855D525833282001FC7D1 /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C52580822900DE3186 /* KeyHandler.swift */; };
 		4C7855D825833287001FC7D1 /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D02580822900DE3186 /* Copyable.swift */; };
 		4C7855DA2583328B001FC7D1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D22580822900DE3186 /* Tree.swift */; };
 		4C7855DB2583328B001FC7D1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376D32580822900DE3186 /* Node.swift */; };
@@ -133,7 +132,6 @@
 		4C1376B3258081E700DE3186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1376B4258081E700DE3186 /* SourceEditorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SourceEditorExtension.entitlements; sourceTree = "<group>"; };
 		4C1376C42580822900DE3186 /* SwiftTypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTypeHandler.swift; sourceTree = "<group>"; };
-		4C1376C52580822900DE3186 /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
 		4C1376C72580822900DE3186 /* Tree+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tree+Debug.swift"; sourceTree = "<group>"; };
 		4C1376C82580822900DE3186 /* DateFormatter+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Types.swift"; sourceTree = "<group>"; };
 		4C1376C92580822900DE3186 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 		4C1376C32580822900DE3186 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376C52580822900DE3186 /* KeyHandler.swift */,
 				4C23F17E2588753400AA7D4D /* LanguageHandlers */,
 			);
 			name = Handlers;
@@ -407,8 +404,8 @@
 		4C23F17B2588752300AA7D4D /* LanguageGenerators */ = {
 			isa = PBXGroup;
 			children = (
-				4C1376CE2580822900DE3186 /* SwiftGenerator.swift */,
 				4C23F164258861E100AA7D4D /* KotlinGenerator.swift */,
+				4C1376CE2580822900DE3186 /* SwiftGenerator.swift */,
 			);
 			path = LanguageGenerators;
 			sourceTree = "<group>";
@@ -657,7 +654,6 @@
 				4C23F175258874DF00AA7D4D /* Primitive.swift in Sources */,
 				4C7855CC25833277001FC7D1 /* DateFormatter+Types.swift in Sources */,
 				4C7855D12583327E001FC7D1 /* StructGenerator.swift in Sources */,
-				4C7855D525833282001FC7D1 /* KeyHandler.swift in Sources */,
 				4C23F165258861E100AA7D4D /* KotlinGenerator.swift in Sources */,
 				4C7855CB25833277001FC7D1 /* Tree+Debug.swift in Sources */,
 				4C7855DA2583328B001FC7D1 /* Tree.swift in Sources */,
@@ -809,6 +805,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Finch/Resources/Finch.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -836,6 +833,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Finch/Resources/Finch.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -860,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -883,6 +882,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;

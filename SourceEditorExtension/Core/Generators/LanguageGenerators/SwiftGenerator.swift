@@ -25,7 +25,7 @@ struct SwiftGenerator {
     private static func swiftCodingKeys(from keys: [String]) -> String {
         var swift = "    public enum CodingKeys: String, CodingKey, CaseIterable {\n"
         keys.forEach { key in
-            let newKey = KeyHandler.update(key: key)
+            let newKey = update(key: key)
             if newKey != key {
                 swift += "        case \(newKey) = \"\(key)\"\n"
             } else {
@@ -40,7 +40,7 @@ struct SwiftGenerator {
         var swift = ""
         for key in properties.keys.sorted() {
             guard let value = properties[key] else { continue }
-            swift += "    public var \(KeyHandler.update(key: key)): \(value)\n"
+            swift += "    public var \(update(key: key)): \(value)\n"
         }
         swift += "\n"
         return swift
@@ -52,16 +52,42 @@ struct SwiftGenerator {
         for (index, key) in properties.keys.sorted().enumerated() {
             guard let value = properties[key] else { continue }
             if index != properties.keys.count - 1 {
-                swift += "\(KeyHandler.update(key: key)): \(value), "
+                swift += "\(update(key: key)): \(value), "
             } else {
-                swift += "\(KeyHandler.update(key: key)): \(value)"
+                swift += "\(update(key: key)): \(value)"
             }
         }
         swift += ") {\n"
         properties.keys.sorted().forEach { key in
-            swift += "        self.\(KeyHandler.update(key: key)) = \(KeyHandler.update(key: key))\n"
+            swift += "        self.\(update(key: key)) = \(update(key: key))\n"
         }
         swift += "    }\n"
         return swift
+    }
+}
+
+private extension SwiftGenerator {
+    static func update(key: String) -> String {
+        let characterSet = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890_")
+        var newKey = key.filter { characterSet.contains($0) }
+
+        if let char = newKey.first, let _ = Int(String(char)) {
+            newKey = newKey.camelCased()
+            return "_\(newKey)"
+        }
+
+        if keywords.contains(newKey) {
+            return "`\(newKey)`"
+        }
+
+        if newKey.contains("_") {
+            return newKey.camelCased()
+        }
+
+        return newKey
+    }
+
+    static var keywords: [String] {
+        "Any as associatedtype break case catch class continue default defer deinit do else enum extension fallthrough false fileprivate for func guard if import in init inout internal is let nil open operator private protocol public repeat rethrows return Self self static struct subscript super switch Type throw throws true try typealias var where while".components(separatedBy: " ")
     }
 }

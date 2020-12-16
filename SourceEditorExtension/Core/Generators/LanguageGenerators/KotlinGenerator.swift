@@ -18,7 +18,7 @@ struct KotlinGenerator {
         var kotlin = ""
         for key in properties.keys.sorted() {
             guard let value = properties[key] else { continue }
-            kotlin += "    val \(key): \(value),"
+            kotlin += "    val \(update(key: key)): \(value),"
 
             if key != properties.keys.sorted().last {
                 kotlin += "\n"
@@ -26,5 +26,22 @@ struct KotlinGenerator {
         }
         kotlin += "\n"
         return kotlin
+    }
+}
+
+private extension KotlinGenerator {
+    static func update(key: String) -> String {
+        let characterSet = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890_")
+        let newKey = key.filter { characterSet.contains($0) }
+
+        if keywords.contains(newKey) {
+            return "`\(newKey)`"
+        }
+
+        return newKey
+    }
+
+    static var keywords: [String] {
+        "as class break continue do else for fun false if in interface super return object package null is try throw true this typeof typealias when while val var".components(separatedBy: " ")
     }
 }
