@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C09F4782589B6F100162C7D /* Finch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F4762589B6F100162C7D /* Finch.xcdatamodeld */; };
+		4C09F49D2589B78E00162C7D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F49C2589B78E00162C7D /* Persistence.swift */; };
 		4C137693258081B800DE3186 /* Finch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137692258081B800DE3186 /* Finch.swift */; };
 		4C137695258081B800DE3186 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137694258081B800DE3186 /* LandingView.swift */; };
 		4C137697258081BA00DE3186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137696258081BA00DE3186 /* Assets.xcassets */; };
@@ -24,6 +26,10 @@
 		4C1C844A2589672300915B24 /* AppDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C84492589672300915B24 /* AppDomain.swift */; };
 		4C1C844D2589673F00915B24 /* HomeDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C844C2589673F00915B24 /* HomeDomain.swift */; };
 		4C1C845025896ECD00915B24 /* SavePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C844F25896ECD00915B24 /* SavePanel.swift */; };
+		4C1C84962589ACD500915B24 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C84952589ACD500915B24 /* Sidebar.swift */; };
+		4C1C84992589ACF200915B24 /* SidebarDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C84982589ACF200915B24 /* SidebarDomain.swift */; };
+		4C1C84A42589AEE700915B24 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; };
+		4C1C84A52589AEE700915B24 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F14F2588250500AA7D4D /* Notification+Names.swift */; };
 		4C23F1542588271900AA7D4D /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1532588271900AA7D4D /* Languages.swift */; };
 		4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F1582588447B00AA7D4D /* WindowAccessor.swift */; };
@@ -35,8 +41,6 @@
 		4C23F18625887E1000AA7D4D /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F18525887E1000AA7D4D /* ChangeObserver.swift */; };
 		4C61063925830C6800791079 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61063825830C6800791079 /* ColoredView.swift */; };
 		4C7855B8258330D0001FC7D1 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7855B6258330D0001FC7D1 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; };
-		4C7855BC258330D0001FC7D1 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7855B4258330D0001FC7D1 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C7855C525833270001FC7D1 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEA98862581455900BA8650 /* Data+Utils.swift */; };
 		4C7855C825833277001FC7D1 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376C92580822900DE3186 /* Array+Utils.swift */; };
 		4C7855C925833277001FC7D1 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1376CB2580822900DE3186 /* String+Utils.swift */; };
@@ -63,7 +67,7 @@
 			remoteGlobalIDString = 4C1376A7258081E700DE3186;
 			remoteInfo = FinchExtension;
 		};
-		4C7855B9258330D0001FC7D1 /* PBXContainerItemProxy */ = {
+		4C1C84A62589AEE700915B24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C137687258081B800DE3186 /* Project object */;
 			proxyType = 1;
@@ -103,13 +107,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C76861F25831B260097EC87 /* Embed Frameworks */ = {
+		4C1C84A82589AEE700915B24 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4C7855BC258330D0001FC7D1 /* Core.framework in Embed Frameworks */,
+				4C1C84A52589AEE700915B24 /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +121,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C09F4772589B6F100162C7D /* Conversion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Conversion.xcdatamodel; sourceTree = "<group>"; };
+		4C09F49C2589B78E00162C7D /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4C13768F258081B800DE3186 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C137692258081B800DE3186 /* Finch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finch.swift; sourceTree = "<group>"; };
 		4C137694258081B800DE3186 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 		4C1C84492589672300915B24 /* AppDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDomain.swift; sourceTree = "<group>"; };
 		4C1C844C2589673F00915B24 /* HomeDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDomain.swift; sourceTree = "<group>"; };
 		4C1C844F25896ECD00915B24 /* SavePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePanel.swift; sourceTree = "<group>"; };
+		4C1C84952589ACD500915B24 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		4C1C84982589ACF200915B24 /* SidebarDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarDomain.swift; sourceTree = "<group>"; };
 		4C23F14F2588250500AA7D4D /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
 		4C23F1532588271900AA7D4D /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		4C23F1582588447B00AA7D4D /* WindowAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAccessor.swift; sourceTree = "<group>"; };
@@ -170,8 +178,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C7855BB258330D0001FC7D1 /* Core.framework in Frameworks */,
 				4C78564A25841EA1001FC7D1 /* Toucan in Frameworks */,
+				4C1C84A42589AEE700915B24 /* Core.framework in Frameworks */,
 				4C1C84462589621100915B24 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +204,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C09F49F2589B92400162C7D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4C09F4762589B6F100162C7D /* Finch.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		4C137686258081B800DE3186 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				4C137692258081B800DE3186 /* Finch.swift */,
+				4C09F49C2589B78E00162C7D /* Persistence.swift */,
 				4C1C84482589671500915B24 /* Domains */,
 				4C16DBDC258306DF00AE4917 /* Extensions */,
 				4C23F1522588270E00AA7D4D /* Models */,
@@ -248,6 +265,7 @@
 				4C137696258081BA00DE3186 /* Assets.xcassets */,
 				4C13769B258081BA00DE3186 /* Info.plist */,
 				4C13769C258081BA00DE3186 /* Finch.entitlements */,
+				4C09F49F2589B92400162C7D /* CoreData */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -372,6 +390,7 @@
 			children = (
 				4C1C84492589672300915B24 /* AppDomain.swift */,
 				4C1C844C2589673F00915B24 /* HomeDomain.swift */,
+				4C1C84982589ACF200915B24 /* SidebarDomain.swift */,
 			);
 			path = Domains;
 			sourceTree = "<group>";
@@ -449,6 +468,7 @@
 			children = (
 				4C16DBD22582FA9700AE4917 /* HomeView.swift */,
 				4C137694258081B800DE3186 /* LandingView.swift */,
+				4C1C84952589ACD500915B24 /* Sidebar.swift */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -483,13 +503,13 @@
 				4C13768C258081B800DE3186 /* Frameworks */,
 				4C13768D258081B800DE3186 /* Resources */,
 				4C1376BB258081E700DE3186 /* Embed App Extensions */,
-				4C76861F25831B260097EC87 /* Embed Frameworks */,
+				4C1C84A82589AEE700915B24 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4C1376B6258081E700DE3186 /* PBXTargetDependency */,
-				4C7855BA258330D0001FC7D1 /* PBXTargetDependency */,
+				4C1C84A72589AEE700915B24 /* PBXTargetDependency */,
 			);
 			name = Finch;
 			packageProductDependencies = (
@@ -614,16 +634,20 @@
 			files = (
 				4C1C844D2589673F00915B24 /* HomeDomain.swift in Sources */,
 				4C23F1592588447B00AA7D4D /* WindowAccessor.swift in Sources */,
+				4C09F49D2589B78E00162C7D /* Persistence.swift in Sources */,
 				4C23F18625887E1000AA7D4D /* ChangeObserver.swift in Sources */,
 				4C16DBD32582FA9700AE4917 /* HomeView.swift in Sources */,
 				4C23F1542588271900AA7D4D /* Languages.swift in Sources */,
+				4C09F4782589B6F100162C7D /* Finch.xcdatamodeld in Sources */,
 				4C1C844A2589672300915B24 /* AppDomain.swift in Sources */,
 				4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */,
 				4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */,
 				4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */,
+				4C1C84992589ACF200915B24 /* SidebarDomain.swift in Sources */,
 				4C137695258081B800DE3186 /* LandingView.swift in Sources */,
 				4C137693258081B800DE3186 /* Finch.swift in Sources */,
 				4C61063925830C6800791079 /* ColoredView.swift in Sources */,
+				4C1C84962589ACD500915B24 /* Sidebar.swift in Sources */,
 				4C1C845025896ECD00915B24 /* SavePanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,10 +694,10 @@
 			target = 4C1376A7258081E700DE3186 /* SourceEditorExtension */;
 			targetProxy = 4C1376B5258081E700DE3186 /* PBXContainerItemProxy */;
 		};
-		4C7855BA258330D0001FC7D1 /* PBXTargetDependency */ = {
+		4C1C84A72589AEE700915B24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4C7855B3258330D0001FC7D1 /* Core */;
-			targetProxy = 4C7855B9258330D0001FC7D1 /* PBXContainerItemProxy */;
+			targetProxy = 4C1C84A62589AEE700915B24 /* PBXContainerItemProxy */;
 		};
 		4C7855E2258332B9001FC7D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -805,7 +829,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Finch/Resources/Finch.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -833,7 +857,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Finch/Resources/Finch.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -858,7 +882,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -882,7 +906,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SourceEditorExtension/Resources/SourceEditorExtension.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -906,6 +930,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -935,6 +960,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1032,6 +1058,19 @@
 			productName = Toucan;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		4C09F4762589B6F100162C7D /* Finch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C09F4772589B6F100162C7D /* Conversion.xcdatamodel */,
+			);
+			currentVersion = 4C09F4772589B6F100162C7D /* Conversion.xcdatamodel */;
+			path = Finch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4C137687258081B800DE3186 /* Project object */;
 }

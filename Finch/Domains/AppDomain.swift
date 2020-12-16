@@ -9,11 +9,11 @@ import ComposableArchitecture
 
 struct AppDomain {
     struct State: Equatable {
-        var homeState = HomeDomain.State()
+        var sidebarState = SidebarDomain.State()
     }
 
     enum Action {
-        case home(HomeDomain.Action)
+        case sidebar(SidebarDomain.Action)
     }
 
     struct Environment {
@@ -22,13 +22,13 @@ struct AppDomain {
     static let reducer = Reducer<State, Action, Environment>.combine(
         Reducer { _, action, _ in
             switch action {
-            case .home: return .none
+            case .sidebar: return .none
             }
         },
-        HomeDomain.reducer
+        SidebarDomain.reducer
             .pullback(
-                state: \.homeState,
-                action: /AppDomain.Action.home,
-                environment: { _ in HomeDomain.Environment() })
+                state: \.sidebarState,
+                action: /AppDomain.Action.sidebar,
+                environment: { _ in SidebarDomain.Environment() })
     )
 }
