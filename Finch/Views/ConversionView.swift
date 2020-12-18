@@ -7,8 +7,8 @@
 
 import ComposableArchitecture
 import Core
-import Toucan
 import SwiftUI
+import Toucan
 
 struct ConversionView: View {
     let store: Store<ConversionDomain.State, ConversionDomain.Action>
@@ -47,7 +47,10 @@ struct ConversionView: View {
                             get: \.conversion.json,
                             send: ConversionDomain.Action.setJSON
                         ),
-                        theme: DefaultThemeDark()
+                        theme: viewStore.binding(
+                            get: \.theme,
+                            send: ConversionDomain.Action.setTheme
+                        )
                     )
                     .isFirstResponder(!isPlaceholder)
                     .textDidChange { text in
@@ -60,7 +63,10 @@ struct ConversionView: View {
                             get: \.convertedString,
                             send: ConversionDomain.Action.setConversion
                         ),
-                        theme: DefaultThemeDark(),
+                        theme: viewStore.binding(
+                            get: \.theme,
+                            send: ConversionDomain.Action.setTheme
+                        ),
                         lexer: viewStore.language.lexer
                     )
                     .isEditable(false)

@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Cocoa
 import Core
+import Toucan
 
 struct ConversionDomain {
     struct State: Equatable, Identifiable, Hashable {
@@ -16,6 +17,7 @@ struct ConversionDomain {
         var convertedString: String = ""
         var showSave: Bool = false
         var language: Language = .swift
+        var theme: Theme = DefaultThemeDark()
     }
 
     enum Action: Equatable {
@@ -25,6 +27,7 @@ struct ConversionDomain {
         case setConversion(String)
         case setJSON(String)
         case setLanguage(Language)
+        case setTheme(Theme)
         case showSave(Bool)
     }
 
@@ -70,6 +73,9 @@ struct ConversionDomain {
         case .setLanguage(let language):
             state.language = language
             return Effect(value: .setConversion(convert(json: state.conversion.json, with: state.language)))
+        case .setTheme(let theme):
+            state.theme = theme
+            return .none
         case .showSave(let value):
             state.showSave = value
             return .none
