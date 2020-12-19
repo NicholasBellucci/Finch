@@ -15,19 +15,11 @@ struct TextView: NSViewRepresentable {
     private var isEditable: Bool = true
 
     private var onEditingChanged: (() -> ())?
-    private var onCommit: (() -> ())?
+    private var onEndEditing: (() -> ())?
     private var onTextChange: ((String) -> ())?
 
-    init(
-        text: Binding<String>,
-        onEditingChanged: (() -> ())? = nil,
-        onCommit: (() -> ())? = nil,
-        onTextChange: ((String) -> ())? = nil
-    ) {
+    init(text: Binding<String>) {
         _text = text
-        self.onEditingChanged = onEditingChanged
-        self.onCommit = onCommit
-        self.onTextChange = onTextChange
     }
 
     func makeCoordinator() -> Coordinator {
@@ -59,9 +51,27 @@ extension TextView {
         return copy
     }
 
-    func isEditable(_ bool: Bool) -> TextView {
+    func isEditable(_ value: Bool) -> TextView {
         var copy = self
-        copy.isEditable = isEditable
+        copy.isEditable = value
+        return copy
+    }
+
+    func textDidBeginEditing(_ handler: @escaping (() -> ())) -> TextView {
+        var copy = self
+        copy.onEditingChanged = handler
+        return copy
+    }
+
+    func textDidChange(_ handler: @escaping ((String) -> ())) -> TextView {
+        var copy = self
+        copy.onTextChange = handler
+        return copy
+    }
+
+    func textDidEndEditing(_ handler: @escaping (() -> ())) -> TextView {
+        var copy = self
+        copy.onEndEditing = handler
         return copy
     }
 }
@@ -99,7 +109,7 @@ extension TextView {
             }
 
             self.parent.text = textView.string
-            self.parent.onCommit?()
+            self.parent.onEndEditing?()
         }
     }
 }
@@ -148,6 +158,7 @@ final class TextViewRepresentable: NSView {
 
         let textContainer = NSTextContainer(containerSize: scrollView.frame.size)
         textContainer.widthTracksTextView = true
+        textContainer.maximumNumberOfLines = 1
         textContainer.containerSize = NSSize(
             width: contentSize.width,
             height: CGFloat.greatestFiniteMagnitude
@@ -165,7 +176,6 @@ final class TextViewRepresentable: NSView {
         textView.isVerticallyResizable = true
         textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         textView.minSize = NSSize(width: 0, height: contentSize.height)
-
         return textView
     }()
 

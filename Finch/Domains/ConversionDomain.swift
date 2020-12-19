@@ -11,12 +11,14 @@ import Core
 import Toucan
 
 struct ConversionDomain {
-    struct State: Equatable, Identifiable, Hashable {
-        var id: String { conversion.id.uuidString }
-        var conversion: Conversion
-        var convertedString: String = ""
+    struct Conversion: Equatable, Identifiable, Hashable {
+        var id: String
+        var name: String
+        var json: String
+        var model: String
+        var language: Language
+
         var showSave: Bool = false
-        var language: Language = .swift
         var theme: Theme = DefaultThemeDark()
     }
 
@@ -24,9 +26,11 @@ struct ConversionDomain {
         case didBeginEditing
         case export(URL)
         case onAppear
-        case setConversion(String)
+        case save
         case setJSON(String)
         case setLanguage(Language)
+        case setModel(String)
+        case setName(String)
         case setTheme(Theme)
         case showSave(Bool)
     }
@@ -34,7 +38,7 @@ struct ConversionDomain {
     struct Environment {
     }
 
-    static let reducer = Reducer<State, Action, Environment> { state, action, _ in
+    static let reducer = Reducer<Conversion, Action, Environment> { state, action, _ in
         switch action {
         case .didBeginEditing:
             return .none
@@ -64,15 +68,32 @@ struct ConversionDomain {
             return .none
         case .onAppear:
             return .none
-        case .setConversion(let string):
-            state.convertedString = string
+        case .save:
             return .none
+        case .setModel(let string):
+            state.model = string
+            return Effect(value: .save)
         case .setJSON(let string):
-            state.conversion.json = string
-            return Effect(value: .setConversion(convert(json: state.conversion.json, with: state.language)))
+            state.json = string
+            return Effect(value: .setModel(convert(json: state.json, language: state.language)))
         case .setLanguage(let language):
             state.language = language
-            return Effect(value: .setConversion(convert(json: state.conversion.json, with: state.language)))
+            return Effect(value: .setModel(convert(json: state.json, language: state.language)))
+        case .setName(let value):
+            state.name = value
+
+            return .merge(
+                Effect(
+                    value: .setModel(
+                        convert(
+                            json: state.json,
+                            name: String(value.capitalized.filter { !" ".contains($0) }),
+                            language: state.language
+                        )
+                    )
+                ),
+                Effect(value: .save)
+            )
         case .setTheme(let theme):
             state.theme = theme
             return .none
@@ -82,12 +103,15 @@ struct ConversionDomain {
         }
     }
 
-    static func convert(json: String, with language: Language) -> String {
+    static func convert(json: String, name: String = "", language: Language) -> String {
         if let data = json.data(using: .utf8), let jsonArray = data.serialized() {
-            Tree.build(language.generatorType, from: jsonArray)
-            return Tree.write()
+            if name != "" {
+                Tree.build(language.generatorType, name: name, from: jsonArray)
+            } else {
+                Tree.build(language.generatorType, from: jsonArray)
+            }
         }
 
-        return ""
+        return Tree.write()
     }
 }

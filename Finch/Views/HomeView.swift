@@ -44,6 +44,7 @@ struct HomeView: View {
                     }
                 }
             }
+            .navigationTitle("")
             .onAppear {
                 viewStore.send(.onAppear)
             }
@@ -52,7 +53,7 @@ struct HomeView: View {
 }
 
 private struct SidebarCell: View {
-    let store: Store<ConversionDomain.State, ConversionDomain.Action>
+    let store: Store<ConversionDomain.Conversion, ConversionDomain.Action>
     @Binding var selection: String?
 
     var body: some View {
@@ -62,8 +63,13 @@ private struct SidebarCell: View {
                 tag: viewStore.id,
                 selection: $selection,
                 label: {
-                    Text(viewStore.conversion.name)
-                        .frame(maxWidth: .infinity)
+                    if viewStore.name != "" {
+                        Text(viewStore.name)
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        Text("New Model")
+                            .frame(maxWidth: .infinity)
+                    }
                 }
             )
         }

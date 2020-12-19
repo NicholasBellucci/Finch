@@ -11,6 +11,7 @@
 		4C09F4AA2589BF9400162C7D /* Finch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F4A82589BF9400162C7D /* Finch.xcdatamodeld */; };
 		4C09F4D02589C53600162C7D /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F4CE2589C53600162C7D /* Conversion.swift */; };
 		4C09F558258AB81800162C7D /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F557258AB81800162C7D /* Publisher+Utils.swift */; };
+		4C09F5F8258D646800162C7D /* NSTextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09F5F7258D646800162C7D /* NSTextField+Utils.swift */; };
 		4C137693258081B800DE3186 /* Finch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137692258081B800DE3186 /* Finch.swift */; };
 		4C137695258081B800DE3186 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C137694258081B800DE3186 /* LandingView.swift */; };
 		4C137697258081BA00DE3186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C137696258081BA00DE3186 /* Assets.xcassets */; };
@@ -125,6 +126,7 @@
 		4C09F4A92589BF9400162C7D /* Finch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finch.xcdatamodel; sourceTree = "<group>"; };
 		4C09F4CE2589C53600162C7D /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = SOURCE_ROOT; };
 		4C09F557258AB81800162C7D /* Publisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utils.swift"; sourceTree = "<group>"; };
+		4C09F5F7258D646800162C7D /* NSTextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Utils.swift"; sourceTree = "<group>"; };
 		4C13768F258081B800DE3186 /* Finch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C137692258081B800DE3186 /* Finch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finch.swift; sourceTree = "<group>"; };
 		4C137694258081B800DE3186 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			children = (
 				4C16DBDD258306F200AE4917 /* Color+App.swift */,
 				4C23F14F2588250500AA7D4D /* Notification+Names.swift */,
+				4C09F5F7258D646800162C7D /* NSTextField+Utils.swift */,
 				4C09F557258AB81800162C7D /* Publisher+Utils.swift */,
 			);
 			path = Extensions;
@@ -644,6 +647,7 @@
 				4C16DBDE258306F200AE4917 /* Color+App.swift in Sources */,
 				4C16DBD92582FE1D00AE4917 /* TextView.swift in Sources */,
 				4C23F1502588250500AA7D4D /* Notification+Names.swift in Sources */,
+				4C09F5F8258D646800162C7D /* NSTextField+Utils.swift in Sources */,
 				4C1C84992589ACF200915B24 /* HomeDomain.swift in Sources */,
 				4C137695258081B800DE3186 /* LandingView.swift in Sources */,
 				4C137693258081B800DE3186 /* Finch.swift in Sources */,

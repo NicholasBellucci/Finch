@@ -18,7 +18,6 @@ struct Finch: App {
     var body: some Scene {
         WindowGroup {
             HomeView(store: appStore.scope(state: \.homeState, action: AppDomain.Action.home))
-                .navigationTitle("Untitled Model")
         }
         .commands {
             SidebarCommands()

@@ -11,7 +11,7 @@ import SwiftUI
 import Toucan
 
 struct ConversionView: View {
-    let store: Store<ConversionDomain.State, ConversionDomain.Action>
+    let store: Store<ConversionDomain.Conversion, ConversionDomain.Action>
     var isPlaceholder: Bool = false
 
     var body: some View {
@@ -44,7 +44,7 @@ struct ConversionView: View {
                 HStack(spacing: 20) {
                     SyntaxTextView(
                         text: viewStore.binding(
-                            get: \.conversion.json,
+                            get: \.json,
                             send: ConversionDomain.Action.setJSON
                         ),
                         theme: viewStore.binding(
@@ -60,8 +60,8 @@ struct ConversionView: View {
 
                     SyntaxTextView(
                         text: viewStore.binding(
-                            get: \.convertedString,
-                            send: ConversionDomain.Action.setConversion
+                            get: \.model,
+                            send: ConversionDomain.Action.setModel
                         ),
                         theme: viewStore.binding(
                             get: \.theme,
@@ -75,7 +75,6 @@ struct ConversionView: View {
             }
             .allowsHitTesting(!isPlaceholder)
             .padding(20)
-            .background(Color.appBackground)
             .savePanel(
                 isPresented: viewStore.binding(
                     get: \.showSave,
@@ -87,29 +86,49 @@ struct ConversionView: View {
             .onTapGesture {
                 viewStore.send(.didBeginEditing)
             }
-        }
-        .toolbar {
-            ToolbarItemGroup {
-                Button {
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.navigation) {
+                    TextField(
+                        "New Model",
+                        text: viewStore.binding(
+                            get: \.name,
+                            send: ConversionDomain.Action.setName
+                        )
+                    )
+                    .truncationMode(.tail)
+                    .frame(width: 400)
+                    .font(.system(size: 16, weight: .medium))
+                    .textFieldStyle(PlainTextFieldStyle())
+                }
 
-                } label: {
-                    Image(systemName: "gear")
+                ToolbarItem(placement: ToolbarItemPlacement.status) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "gear")
+                    }
                 }
             }
         }
     }
 }
 
-//struct ConversionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ConversionView(
-//            store: Store(
-//                initialState: ConversionDomain.State(),
-//                reducer: ConversionDomain.reducer,
-//                environment: ConversionDomain.Environment()
-//            )
-//        )
-//        .environment(\.colorScheme, .dark)
-//        .frame(width: 1000, height: 500)
-//    }
-//}
+struct ConversionView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConversionView(
+            store: Store(
+                initialState: ConversionDomain.Conversion(
+                    id: UUID().uuidString,
+                    name: "Preview Model",
+                    json: "{\n\t\"id\": \"1234\"\n}",
+                    model: "public class Test {\n\n}",
+                    language: .swift
+                ),
+                reducer: ConversionDomain.reducer,
+                environment: ConversionDomain.Environment()
+            )
+        )
+        .environment(\.colorScheme, .dark)
+        .frame(width: 1000, height: 500)
+    }
+}
