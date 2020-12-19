@@ -1,83 +1,135 @@
 //
-//  HomeDomain.swift
+//  SidebarDomain.swift
 //  Finch
 //
-//  Created by Nicholas Bellucci on 12/14/20.
+//  Created by Nicholas Bellucci on 12/15/20.
 //
 
 import ComposableArchitecture
 import Cocoa
 import Core
+import Combine
 
 struct HomeDomain {
     struct State: Equatable {
-        var conversion: String = ""
-        var showSave: Bool = false
-        var json: String = ""
-        var language: Language = .swift
+        var conversions: [ConversionDomain.Conversion] = []
+        var selectedId: String?
     }
 
     enum Action: Equatable {
-        case export(URL)
+        case conversion(index: Int, action: ConversionDomain.Action)
+        case createBlankConversion
+        case fetchAllConversions
         case onAppear
-        case setConversion(String)
-        case setJSON(String)
-        case setLanguage(Language)
-        case showSave(Bool)
+        case selectConversion(String?)
+        case setConversions([Conversion])
+
+        case deleteAll
     }
 
     struct Environment {
+        var mainQueue: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
+        var viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
     }
 
-    static let reducer = Reducer<State, Action, Environment> { state, action, _ in
-        switch action {
-        case .export(let url):
-            let fileExtension = state.language.fileExtension
-
-            let fileManager = FileManager.default
-            if !fileManager.fileExists(atPath: url.path) {
-                do {
-                    try fileManager.createDirectory(atPath: url.path, withIntermediateDirectories: true, attributes: nil)
-
-                    Tree.forEach {
-                        let fileURL = url.appendingPathComponent("\($0.name).\(fileExtension)")
-                        do {
-                            try $0.model.write(to: fileURL, atomically: true, encoding: .utf8)
-                        } catch {
-                            print(error.localizedDescription)
+    static let reducer = Reducer<State, Action, Environment>.combine(
+        Reducer { state, action, environment in
+            switch action {
+            case let .conversion(index, action):
+                switch action {
+                case .save:
+                    let conversion = state.conversions[index]
+                    return Conversion.saveData(
+                        conversionId: conversion.id,
+                        context: environment.viewContext,
+                        name: conversion.name,
+                        json: conversion.json,
+                        model: conversion.model,
+                        language: conversion.language
+                    )
+                    .flatMap(
+                        scheduler: environment.mainQueue,
+                        success: { _ in
+                            return .none
+                        },
+                        failure: { _ in
+                            return .none
                         }
-                    }
-                } catch {
-                    print(error)
+                    )
+                default:
+                    return .none
                 }
-            } else {
-                print("Folder already exists")
+            case .createBlankConversion:
+                return Conversion.createBlank(context: environment.viewContext)
+                    .flatMap(
+                        scheduler: environment.mainQueue,
+                        success: { _ in
+                            return Effect(value: .fetchAllConversions)
+                        },
+                        failure: { _ in
+                            return .none
+                        }
+                    )
+
+            case .fetchAllConversions:
+                return Conversion.fetchAll(context: environment.viewContext)
+                    .flatMap(
+                        scheduler: environment.mainQueue,
+                        success: { conversions in
+                            return Effect(value: .setConversions(conversions))
+                        },
+                        failure: { _ in
+                            return .none
+                        }
+                    )
+
+            case .onAppear:
+                return Effect(value: .fetchAllConversions)
+            case .selectConversion(let value):
+                state.selectedId = value
+                return .none
+            case .setConversions(let conversions):
+                state.conversions = conversions.map {
+                    ConversionDomain.Conversion(
+                        id: $0.id.uuidString,
+                        name: $0.name,
+                        json: $0.json,
+                        model: $0.model,
+                        language: Language(rawValue: Int($0.language)) ?? .swift
+                    )
+                }
+
+                state.selectedId = state.conversions.first?.id
+
+                if state.conversions.isEmpty {
+                    return Effect(value: .createBlankConversion)
+                } else {
+                    return .none
+                }
+            case .deleteAll:
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Conversion")
+                fetchRequest.returnsObjectsAsFaults = false
+
+                do {
+                    let items = try environment.viewContext.fetch(fetchRequest) as! [NSManagedObject]
+
+                    for item in items {
+                        environment.viewContext.delete(item)
+                    }
+
+                    state.conversions = []
+                    try environment.viewContext.save()
+                } catch {
+                    // Error Handling
+                    // ...
+                }
+
+                return Effect(value: .fetchAllConversions)
             }
-
-            return .none
-        case .onAppear:
-            return .none
-        case .setConversion(let string):
-            state.conversion = string
-            return .none
-        case .setJSON(let string):
-            state.json = string
-            return Effect(value: .setConversion(convert(json: state.json, with: state.language)))
-        case .setLanguage(let language):
-            state.language = language
-            return Effect(value: .setConversion(convert(json: state.json, with: state.language)))
-        case .showSave(let value):
-            state.showSave = value
-            return .none
-        }
-    }
-
-    static func convert(json: String, with language: Language) -> String {
-        if let data = json.data(using: .utf8), let jsonArray = data.serialized() {
-            Tree.build(language.generatorType, from: jsonArray)
-            return Tree.write()
-        }
-
-        return ""
-    }
+        },
+        ConversionDomain.reducer.forEach(
+            state: \State.conversions,
+            action: /Action.conversion(index:action:),
+            environment: { _ in ConversionDomain.Environment() })
+    )
 }

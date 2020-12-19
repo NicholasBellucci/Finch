@@ -6,11 +6,11 @@ public struct Tree {
     private static var type: GeneratorType = .swift
     private static var parents: [Node] = []
 
-    public static func build(_ type: GeneratorType, from json: [String: Any]) {
+    public static func build(_ type: GeneratorType, name: String = "Root", from json: [String: Any]) {
         self.type = type
         parents = []
         
-        let rootNode = Node(name: "Root")
+        let rootNode = Node(name: name)
         addChildren(to: rootNode, with: json)
         self.rootNode = rootNode
 
