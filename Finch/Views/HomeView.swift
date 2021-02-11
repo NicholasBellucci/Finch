@@ -64,11 +64,24 @@ private struct SidebarCell: View {
                 selection: $selection,
                 label: {
                     if viewStore.name != "" {
-                        Text(viewStore.name)
-                            .frame(maxWidth: .infinity)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(viewStore.name)
+                                .font(.system(size: 14, weight: .semibold))
+
+                            Text(viewStore.language.title)
+                                .font(.system(size: 11, weight: .regular))
+                        }
+                        .padding(5)
+
                     } else {
-                        Text("New Model")
-                            .frame(maxWidth: .infinity)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text("New Model")
+                                .font(.system(size: 14, weight: .semibold))
+
+                            Text(viewStore.language.title)
+                                .font(.system(size: 11, weight: .regular))
+                        }
+                        .padding(5)
                     }
                 }
             )

@@ -96,14 +96,14 @@ struct ConversionView: View {
                         )
                     )
                     .truncationMode(.tail)
-                    .frame(width: 400)
+                    .frame(width: 200)
                     .font(.system(size: 16, weight: .medium))
                     .textFieldStyle(PlainTextFieldStyle())
                 }
 
                 ToolbarItem(placement: ToolbarItemPlacement.status) {
                     Button {
-                        
+                        viewStore.send(.showSave(true))
                     } label: {
                         Image(systemName: "gear")
                     }
